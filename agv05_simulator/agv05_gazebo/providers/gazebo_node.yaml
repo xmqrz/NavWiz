@@ -1,0 +1,7 @@
+%YAML 1.1
+---
+name: gazebo_node
+spec_version: 1
+spec_type: provider
+implements: agv05_capabilities/SimulatorMobileRobot
+launch_file: 'launch/gazebo_node.launch'

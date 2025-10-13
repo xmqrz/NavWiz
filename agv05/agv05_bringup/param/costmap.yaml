@@ -1,0 +1,205 @@
+global_frame: map
+robot_base_frame: base
+
+transform_tolerance: 0.5
+update_frequency: 2.0
+publish_frequency: 2.0
+
+# For LayeredCostmap
+rolling_window: false
+track_unknown_space: true  # prevent path planning through unknown space
+
+# For CostmapPublisher
+always_send_full_costmap: true
+
+## Old parameters
+#static_map: true            -> replace with static_layer plugin
+#map_type: costmap or voxel  -> replace with obstacle_layer plugin
+
+## Map parameters (with static_layer and non rolling window, this will be locked)
+#width: 10.0
+#height: 10.0
+#resolution: 0.05
+#origin_x: 0.0
+#origin_y: 0.0
+
+## Robot Footprint
+robot_radius: 0.55
+#footprint:
+footprint_padding: 0.0
+#footprint_topic:
+
+plugins:
+- {name: static_layer, type: "costmap_2d::StaticLayer"}
+- {name: forbidden_layer, type: "agv05::ForbiddenLayer"}
+- {name: path_layer, type: "agv05::StaticPathLayer"}
+#- {name: obstacle_layer, type: "costmap_2d::ObstacleLayer"}
+- {name: obstacle_layer, type: "costmap_2d::VoxelLayer"}
+- {name: inflation_layer, type: "costmap_2d::InflationLayer"}
+
+# all defaults are good
+static_layer:
+  enabled: true
+  map_topic: map
+  first_map_only: false
+  subscribe_to_updates: false
+  track_unknown_space: true  # prevent treating unknown space as free space
+  use_maximum: false
+  lethal_cost_threshold: 100
+  unknown_cost_value: -1
+  trinary_costmap: true
+
+forbidden_layer:
+  zone_topic: /map/forbidden_zone
+
+  # dyncfg
+  enabled: true
+  invert: false
+
+path_layer:
+  path_topic: /map/static_path
+
+  # dyncfg
+  enabled: true
+  cost: 10
+  gradient_distance: 0.3
+  border_cost: 255
+
+obstacle_layer:
+  track_unknown_space: true
+  transform_tolerance: 0.2  # to set here - time allowed when waiting for tf
+  publish_voxel_map: false  # for VoxelLayer only
+
+  # dyncfg
+  enabled: true
+  footprint_clearing_enabled: true
+  max_obstacle_height: 2
+  combination_method: 1   # 0 - overwrite, 1 - maximum, 99 - do nothing
+  # dyncfg - VoxelLayer only
+  origin_z: 0
+  z_resolution: 0.2
+  z_voxels: 10
+  unknown_threshold: 15
+  mark_threshold: 0
+
+  obstacle_range: 5.0
+  raytrace_range: 1000.0
+  obstacle_timeout: 5.0
+  decay_model: 0  # 0 - constant, 1 - linear, 2 - exponential
+  observation_sources: scan scan2 camera1
+
+  scan:
+    topic: /scan
+    throttle_update_rate: 20.0
+    data_type: LaserScan
+    clearing: true
+    marking: true
+    max_obstacle_height: 2.0
+    inf_is_valid: true
+
+  scan2:
+    topic: /scan2
+    throttle_update_rate: 20.0
+    data_type: LaserScan
+    clearing: true
+    marking: true
+    max_obstacle_height: 2.0
+    inf_is_valid: true
+
+  scan3:
+    topic: /scan3
+    throttle_update_rate: 20.0
+    data_type: LaserScan
+    clearing: true
+    marking: true
+    max_obstacle_height: 2.0
+    inf_is_valid: true
+
+  scan4:
+    topic: /scan4
+    throttle_update_rate: 20.0
+    data_type: LaserScan
+    clearing: true
+    marking: true
+    max_obstacle_height: 2.0
+    inf_is_valid: true
+
+  scan5:
+    topic: /scan5
+    throttle_update_rate: 20.0
+    data_type: LaserScan
+    clearing: true
+    marking: true
+    max_obstacle_height: 2.0
+    inf_is_valid: true
+
+  scan6:
+    topic: /scan6
+    throttle_update_rate: 20.0
+    data_type: LaserScan
+    clearing: true
+    marking: true
+    max_obstacle_height: 2.0
+    inf_is_valid: true
+
+  camera1:
+    topic: /camera1/scan
+    throttle_update_rate: 20.0
+    data_type: LaserScan
+    clearing: false
+    marking: true
+    max_obstacle_height: 2.0
+
+  camera2:
+    topic: /camera2/scan
+    throttle_update_rate: 20.0
+    data_type: LaserScan
+    clearing: false
+    marking: true
+    max_obstacle_height: 2.0
+
+  camera3:
+    topic: /camera3/scan
+    throttle_update_rate: 20.0
+    data_type: LaserScan
+    clearing: false
+    marking: true
+    max_obstacle_height: 2.0
+
+  camera4:
+    topic: /camera4/scan
+    throttle_update_rate: 20.0
+    data_type: LaserScan
+    clearing: false
+    marking: true
+    max_obstacle_height: 2.0
+
+  camera5:
+    topic: /camera5/scan
+    throttle_update_rate: 20.0
+    data_type: LaserScan
+    clearing: false
+    marking: true
+    max_obstacle_height: 2.0
+
+  default_scan:
+    # defaults
+    topic: scan
+    sensor_frame: ''
+    observation_persistence: 0.0  # how long to keep the observation of an obstacle
+    expected_update_rate: 0.0  # optional - max duration between updates
+    data_type: PointCloud    # or PointCloud2 or LaserScan
+    min_obstacle_height: 0.0
+    max_obstacle_height: 2.0  # to set here (separated from what is in obstacle_layer)
+    inf_is_valid: false
+    clearing: false
+    marking: true
+    #obstacle_range:  # default to inherit from obstacle_layer
+    #raytrace_range:  # default to inherit from obstacle_layer
+
+inflation_layer:
+  # dyncfg
+  enabled: true
+  cost_scaling_factor: 100  # 0 - 100
+  inflation_radius: 1.0  # 0 - 50 - ensure sufficient to cover robot footprint
+  inflate_unknown: false

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv05_variable_storage</name>
+  <version>3.2.0</version>
+  <description>The variable storage library for AGV05.</description>
+  <author email="patrick@dfautomation.com">Patrick Chin</author>
+  <maintainer email="patrick@dfautomation.com">Patrick Chin</maintainer>
+  <license file="COPYRIGHT">Copyright (C) 2017 DF Automation and Robotics Sdn. Bhd.</license>
+  <url type="repository">https://gitlab.com/dfautomation/product/navwiz/agv05</url>
+  <url type="bugtracker">https://gitlab.com/dfautomation/product/navwiz/agv05/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>boost</depend>
+  <depend>libmysqlcppconn-dev</depend>
+  <depend>roscpp</depend>
+
+  <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-mysqldb</exec_depend>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-mysqldb</exec_depend>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-sqlalchemy</exec_depend>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-sqlalchemy</exec_depend>
+  <exec_depend>rospy</exec_depend>
+
+  <test_depend>roslint</test_depend>
+  <test_depend>rostest</test_depend>
+</package>

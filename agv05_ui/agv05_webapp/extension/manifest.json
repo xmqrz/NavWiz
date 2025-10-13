@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "Token Setter Extension",
+  "version": "1.0",
+  "runAt": "document_start",
+  "permissions": ["activeTab", "incognito"],
+  "content_scripts": [
+    {
+      "matches": ["http://127.0.0.1/*", "https://127.0.0.1/*"],
+      "js": ["trackless.js", "token-x.js", "token.js", "content.js"]
+    }
+  ]
+}

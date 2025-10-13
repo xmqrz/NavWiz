@@ -1,0 +1,54 @@
+include "agv05.inc"
+include "map.inc"
+include "trolley.inc"
+
+# robot
+agv05
+(
+  name "agv05"
+  pose [ 0.0 0.0 0.0 0.0 ]
+)
+
+# obstacles
+trolley(name "trolley01" pose [24.0 -10.0 0.0 0.0])
+trolley(name "trolley02" pose [25.4 -10.0 0.0 0.0])
+trolley(name "trolley03" pose [26.8 -10.0 0.0 0.0])
+trolley(name "trolley04" pose [24.0 -9.0 0.0 0.0])
+trolley(name "trolley05" pose [25.4 -9.0 0.0 0.0])
+trolley(name "trolley06" pose [26.8 -9.0 0.0 0.0])
+trolley(name "trolley07" pose [24.0 -8.0 0.0 0.0])
+trolley(name "trolley08" pose [25.4 -8.0 0.0 0.0])
+trolley(name "trolley09" pose [26.8 -8.0 0.0 0.0])
+trolley(name "trolley10" pose [29.6 -2.1 0.0 90.0])
+trolley(name "trolley11" pose [28.6 -2.1 0.0 90.0])
+trolley(name "trolley12" pose [29.6 -3.6 0.0 90.0])
+trolley(name "trolley13" pose [28.6 -3.6 0.0 90.0])
+
+# floor
+floorplan
+(
+  name "hospital"
+  bitmap "hospital.png"
+  size [ 155.85 59.45 1.0 ]
+  pose [ 0.0 14.6 0.0 0.0 ]
+)
+
+window
+(
+  size [ 500 500 ]  # in pixels
+  scale 25  # pixels per meter
+  center [ 0.0  0.0 ]
+  rotate [ 0.0  0.0 ]
+
+  show_data 1  # 1=on 0=off
+)
+
+
+# set the resolution of the underlying raytrace model in meters
+resolution 0.01
+
+interval_sim 100  # simulation timestep in milliseconds
+
+# Not available in default-shipped Stage v4.1.1
+# skip confirmation dialog when quitting
+confirm_on_quit 0

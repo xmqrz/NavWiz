@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Resolve and update NTP server IP address in chrony.conf
+if grep -q '^initstepslew .* ntp.ubuntu.com' /etc/chrony/chrony.conf; then
+    ip=`(dig +short +timeout=2 +retries=0 ntp.ubuntu.com || echo '') | awk 'END{print}'`
+    sed -ri "s/^initstepslew .*\$/initstepslew 1.0 $ip ntp.ubuntu.com/" /etc/chrony/chrony.conf
+fi
+
+# vim: ts=4:sw=4

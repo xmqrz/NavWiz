@@ -1,0 +1,26 @@
+<launch>
+  <arg name="use_gui" default="$(optenv AGV05_GAZEBO_USE_GUI true)"/>
+  <arg name="world" default="$(optenv AGV05_GAZEBO_WORLD test_zone)"/>
+
+  <!-- Launch gazebo windows with empty world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="gui" value="$(arg use_gui)"/>
+    <arg name="world_name" value="$(find agv05_gazebo)/world/$(arg world).world"/>
+  </include>
+
+  <!-- spawn a agv model at gazebo -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -model dummy -param robot_description" />
+
+  <!-- nav2d scan -->
+  <param name="nav2d_scan_topics" value="scan" />
+
+  <!-- agv05_lidar scan -->
+  <rosparam param="primary_obstacle_scan_topics">
+    scan: Front Laser
+  </rosparam>
+
+  <!-- robot description -->
+  <arg name="model" default="$(find agv05_gazebo)/urdf/dummy.xacro" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
+</launch>

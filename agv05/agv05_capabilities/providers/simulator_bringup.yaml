@@ -1,0 +1,14 @@
+%YAML 1.1
+---
+name: simulator_bringup
+spec_version: 1
+spec_type: provider
+description: 'Implements the Agv05Bringup capability for the simulator robot.'
+implements: agv05_capabilities/Agv05Bringup
+launch_file: 'launch/simulator_bringup.launch'
+depends_on:
+  'std_capabilities/Diagnostics':
+    provider: 'agv05_capabilities/simulator_diagnostics'
+  'std_capabilities/RobotStatePublisher':
+    provider: 'agv05_capabilities/simulator_robot_state_publisher'
+  'agv05_capabilities/SimulatorMobileRobot': {}

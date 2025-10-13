@@ -1,0 +1,62 @@
+.agv05-toolbar {
+  @apply w-full;
+  @apply flex flex-wrap items-center justify-start gap-x-1 gap-y-[1px] space-x-0;
+  @apply overflow-hidden;
+  @apply bg-surface-500-400-token;
+  @apply rounded-t-2xl;
+  @apply border border-gray-300 shadow-xl;
+
+  &.agv05-fullscreen {
+    @apply fixed;
+    @apply inset-x-0;
+    @apply top-0;
+    @apply z-50;
+    @apply rounded-t-none;
+    @apply min-h-[44px];
+    @apply overflow-visible;
+  }
+
+  button {
+    @apply bg-gray-200 !text-black;
+    &.active {
+      @apply bg-secondary-400;
+      box-shadow: inset 0px 0px 5px 5px rgba(122, 117, 225, 1);
+    }
+    &.disabled {
+      @apply opacity-30;
+    }
+  }
+  .checkbox {
+    @apply bg-surface-400;
+    @apply border border-surface-500;
+  }
+  .checkbox:checked {
+    @apply bg-primary-500;
+  }
+
+  .toolbar-path-speed {
+    @apply w-[100px];
+  }
+  .toolbar-path-speed-param {
+    @apply w-auto;
+  }
+  #toolbar-station-name {
+    @apply w-[250px];
+  }
+
+  .btn-group {
+    @apply bg-gray-300;
+    & > * {
+      @apply border-gray-400/50;
+    }
+  }
+
+  .divider-vertical {
+    @apply h-9;
+    @apply border-black;
+  }
+
+  .input-group > * + * {
+    @apply border-l border-t-0 border-gray-400/50;
+  }
+}

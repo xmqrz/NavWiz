@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv05_obstacle_sensor</name>
+  <version>3.2.0</version>
+  <description>
+    The obstacle sensor multiplexer for AGV05.
+  </description>
+  <author email="phtan@dfautomation.com">phtan</author>
+  <maintainer email="phtan@dfautomation.com">phtan</maintainer>
+  <license file="COPYRIGHT">Copyright (C) 2017 DF Automation and Robotics Sdn. Bhd.</license>
+  <url type="repository">https://gitlab.com/dfautomation/product/navwiz/agv05</url>
+  <url type="bugtracker">https://gitlab.com/dfautomation/product/navwiz/agv05/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>agv05_msgs</depend>
+  <depend>diagnostic_updater</depend>
+  <depend>dynamic_reconfigure</depend>
+  <depend>roscpp</depend>
+  <depend>std_srvs</depend>
+
+  <build_depend>agv05_lidar</build_depend>
+  <build_depend>libjsoncpp-dev</build_depend>
+
+  <exec_depend>libjsoncpp</exec_depend>
+
+  <test_depend>roslint</test_depend>
+</package>

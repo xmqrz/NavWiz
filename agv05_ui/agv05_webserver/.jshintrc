@@ -1,0 +1,26 @@
+{
+  "globals": {
+    "global": true,
+    "module": true,
+    "process": true,
+    "require": true
+  },
+  "esversion": 6,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "latedef": false,
+  "newcap": true,
+  "noarg": true,
+  "sub": true,
+  "undef": true,
+  "boss": false,
+  "eqnull": false,
+  "browser": true,
+  "devel": true,
+  "strict": "global",
+  "trailing": true,
+  "quotmark": "single",
+  "proto": true,
+  "laxbreak": true
+}

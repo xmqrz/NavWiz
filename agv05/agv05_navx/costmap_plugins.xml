@@ -1,0 +1,10 @@
+<class_libraries>
+  <library path="lib/libagv05_costmap_layers">
+    <class type="agv05::ForbiddenLayer" base_class_type="costmap_2d::Layer">
+      <description>AGV05 forbidden zone layer.</description>
+    </class>
+    <class type="agv05::StaticPathLayer" base_class_type="costmap_2d::Layer">
+      <description>AGV05 static pre-planned path layer.</description>
+    </class>
+  </library>
+</class_libraries>

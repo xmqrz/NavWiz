@@ -1,0 +1,52 @@
+<launch>
+  <arg name="has_lcd" default="$(optenv AGV05_HAS_LCD false)" />
+  <arg name="human_follower" default="$(optenv HUMAN_FOLLOWER false)" />
+  <arg name="simulator" default="$(optenv SIMULATOR false)" />
+  <arg name="trackless" default="$(optenv TRACKLESS false)" />
+
+  <group unless="$(arg simulator)">
+    <node pkg="agv05_audio_player" type="audio_player.py" name="agv05_audio_player" output="screen" />
+    <node pkg="agv05_joy" type="joy_xbox360.py" name="agv05_joy" output="screen" />
+    <node pkg="agv05_led_control_mux" type="agv05_led_control_mux" name="agv05_led_control_mux" output="screen" />
+    <node pkg="agv05_line_sensor" type="agv05_line_sensor" name="agv05_line_sensor" output="screen" />
+    <node pkg="agv05_menu_panel" type="agv05_menu_panel" name="agv05_menu_panel" output="screen" if="$(arg has_lcd)" />
+    <node pkg="agv05_modbus_client" type="modbus_client.py" name="agv05_modbus_client" output="screen" />
+    <node pkg="agv05_modbus_server" type="modbus_server.py" name="agv05_modbus_server" output="screen" />
+    <node pkg="agv05_motor" type="agv05_motor" name="agv05_motor" output="screen" />
+    <node pkg="agv05_panel" type="agv05_panel" name="agv05_panel" output="screen" />
+    <node pkg="agv05_power" type="agv05_power" name="agv05_power" output="screen" />
+    <node pkg="agv05_remote_io" type="remote_io.py" name="agv05_remote_io" output="screen" />
+    <node pkg="agv05_safety" type="agv05_safety" name="agv05_safety" output="screen">
+      <rosparam file="$(find agv05_bringup)/param/safety.yaml" command="load" />
+      <rosparam file="$(find agv05_bringup)/param/safetyx.yaml" command="load" if="$(arg trackless)" />
+    </node>
+    <node pkg="cpu_status" type="cpu_status.py" name="cpu_status" output="screen" />
+    <node pkg="joy" type="joy_node" name="joy_node" output="screen">
+      <param name="deadzone" value="0.25"/>
+    </node>
+    <node pkg="libsensors_monitor" type="libsensors_monitor" name="libsensors_monitor" />
+  </group>
+
+  <node pkg="agv05_lidar" type="agv05_lidar" name="agv05_lidar" output="screen">
+    <remap from="~primary_obstacle_scan_topics" to="/primary_obstacle_scan_topics"/>
+    <remap from="~secondary_obstacle_scan_topics" to="/secondary_obstacle_scan_topics"/>
+    <remap from="~tertiary_obstacle_scan_topics" to="/tertiary_obstacle_scan_topics"/>
+    <remap from="~quaternary_obstacle_scan_topics" to="/quaternary_obstacle_scan_topics"/>
+    <remap from="~quinary_obstacle_scan_topics" to="/quinary_obstacle_scan_topics"/>
+  </node>
+  <node pkg="agv05_nav" type="agv05_nav" name="agv05_nav" output="screen" />
+  <node pkg="agv05_obstacle_sensor" type="agv05_obstacle_sensor" name="agv05_obstacle_sensor" output="screen" />
+
+  <group if="$(arg trackless)">
+    <node pkg="agv05_navx" type="agv05_navx" name="agv05_navx" output="screen">
+      <rosparam file="$(find agv05_bringup)/param/costmap.yaml" command="load" ns="costmap" />
+      <rosparam file="$(find agv05_bringup)/param/planner.yaml" command="load" ns="planner" />
+      <param name="planner_frequency" value="2.0"/>
+    </node>
+    <node pkg="agv05_state_filter" type="agv05_state_filter" name="agv05_state_filter" output="screen" />
+    <group if="$(arg human_follower)">
+      <node pkg="human_follower" type="human_follower" name="human_follower" output="screen" />
+    </group>
+    <node pkg="marker_localization" type="marker_localization" name="marker_localization" output="screen" />
+  </group>
+</launch>

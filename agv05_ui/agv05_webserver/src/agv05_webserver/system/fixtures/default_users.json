@@ -1,0 +1,48 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "username": "admin",
+    "password": "pbkdf2_sha256$36000$FAa3olYG01CQ$Iuor4zvprS20MuANjhOluaRIsKQum2G5R4Hs0b/lkjQ=",
+    "email": "admin@dfautomation.com",
+    "is_superuser": true,
+    "is_staff": true
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "username": "Supervisor",
+    "password": "pbkdf2_sha256$36000$KjqkyClV5Rig$0jLqAa5m3a1iuQXG/NK8kTO/M/0f4/WQBngd4b03Qzs=",
+    "groups": [
+      [
+        "Supervisor"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "username": "User",
+    "password": "pbkdf2_sha256$36000$IxVskEzNbWat$9TYewo/iiG36e2hxgVCN/gntuNS7kwdcnJv1zB0iOlY=",
+    "groups": [
+      [
+        "User"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "username": "CallButton",
+    "password": "pbkdf2_sha256$36000$mn1trTXypNG4$paIP7PNXRyCPalyYfuHo8Qq8mL+ol36FuDYCVHlQJWc=",
+    "groups": [
+      [
+        "Call Button"
+      ]
+    ]
+  }
+}
+]

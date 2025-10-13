@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv05_ui</name>
+  <version>3.2.0</version>
+  <description>
+    The agv05_ui meta package provides all the packages for running the AGV05 user interface.
+  </description>
+  <author email="patrick@dfautomation.com">Patrick Chin</author>
+  <maintainer email="patrick@dfautomation.com">Patrick Chin</maintainer>
+  <license file="COPYRIGHT">Copyright (C) 2015 DF Automation and Robotics Sdn. Bhd.</license>
+  <url type="repository">https://gitlab.com/dfautomation/product/navwiz/agv05_ui</url>
+  <url type="bugtracker">https://gitlab.com/dfautomation/product/navwiz/agv05_ui/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>agv05_webapp</exec_depend>
+  <exec_depend>agv05_webserver</exec_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

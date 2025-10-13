@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/api/v3/white-label/favicon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NavWiz</title>
+    %sveltekit.head%
+    <script>
+      var global = global || window;
+      window.onunhandledrejection = function (event) {
+        // fix whitescreen on boot (net::ERR_NETWORK_CHANGED)
+        if (event.reason.message.includes('Failed to fetch dynamically')) {
+          setTimeout(function () {
+            location.reload();
+          }, 3000);
+        }
+      };
+    </script>
+  </head>
+  <body data-sveltekit-preload-data="hover" data-theme="navwiz-theme">
+    <div
+      class="navwiz-loading-panel flex h-screen w-screen flex-col items-center justify-center space-y-4"
+      style="display: none">
+      <img class="logo w-4/12 max-w-2xl" />
+      <div class="text-xl">
+        Loading
+        <i class="fa-solid fa-spinner fa-spin-pulse"></i>
+      </div>
+    </div>
+    <div style="display: contents">%sveltekit.body%</div>
+  </body>
+</html>

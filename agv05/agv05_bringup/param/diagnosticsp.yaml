@@ -1,0 +1,72 @@
+audio_player:
+  type: diagnostic_aggregator/GenericAnalyzer
+  path: 'Audio Player'
+  timeout: 5.0
+  startswith: 'agv05_audio_player'
+  remove_prefix: agv05_audio_player
+cpu:
+  type: diagnostic_aggregator/GenericAnalyzer
+  path: 'CPU'
+  timeout: 5.0
+  startswith: 'libsensors_monitor'
+  remove_prefix: libsensors_monitor
+cpu_status:
+  type: diagnostic_aggregator/GenericAnalyzer
+  path: 'CPU Status'
+  timeout: 5.0
+  startswith: 'cpu_status'
+  remove_prefix: cpu_status
+joystick:
+  type: diagnostic_aggregator/DiscardAnalyzer
+  path: 'Joystick'
+  timeout: 5.0
+  startswith: 'joy_node'
+  remove_prefix: joy_node
+line_sensor:
+  type: diagnostic_aggregator/GenericAnalyzer
+  path: 'Line Sensor'
+  timeout: 5.0
+  startswith: 'agv05_line_sensor'
+  remove_prefix: agv05_line_sensor
+menu_panel:
+  type: diagnostic_aggregator/DiscardAnalyzer
+  path: 'Menu Panel'
+  timeout: 5.0
+  startswith: 'agv05_menu_panel'
+  remove_prefix: agv05_menu_panel
+modbus_client:
+  type: diagnostic_aggregator/GenericAnalyzer
+  path: 'Modbus Client'
+  timeout: 5.0
+  startswith: 'agv05_modbus_client'
+  remove_prefix: agv05_modbus_client
+motor:
+  type: diagnostic_aggregator/GenericAnalyzer
+  path: 'Motor'
+  timeout: 5.0
+  startswith: 'agv05_motor'
+  remove_prefix: agv05_motor
+panel:
+  type: diagnostic_aggregator/GenericAnalyzer
+  path: 'Panel'
+  timeout: 5.0
+  startswith: 'agv05_panel'
+  remove_prefix: agv05_panel
+power:
+  type: diagnostic_aggregator/GenericAnalyzer
+  path: 'Power'
+  timeout: 5.0
+  startswith: 'agv05_power'
+  remove_prefix: agv05_power
+remote_io:
+  type: diagnostic_aggregator/GenericAnalyzer
+  path: 'Remote IO'
+  timeout: 5.0
+  startswith: 'agv05_remote_io'
+  remove_prefix: agv05_remote_io
+safety:
+  type: diagnostic_aggregator/GenericAnalyzer
+  path: 'Safety'
+  timeout: 5.0
+  startswith: 'agv05_safety'
+  remove_prefix: agv05_safety

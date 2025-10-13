@@ -1,0 +1,12 @@
+<launch>
+  <arg name="use_sim_time" default="true" />
+  <arg name="auto_start" default="$(optenv AUTO_START false)" />
+  <arg name="robot_name" default="trackless_simulator" />
+  <arg name="initialize_storage_params" default="true" />
+
+  <!-- Capabilities Server -->
+  <arg name="capabilities_default_providers"    default="{'agv05_capabilities/Agv05Bringup': 'agv05_capabilities/simulator_bringup', 'agv05_capabilities/MobileRobot': '$(optenv AGV05_MOBILE_ROBOT_PROVIDER)', 'agv05_capabilities/SimulatorMobileRobot': '$(optenv AGV05_SIMULATOR_MOBILE_ROBOT_PROVIDER)'}" doc="default providers" />
+
+  <env name="DISPLAY" value="$(optenv DISPLAY :0.0)" />
+  <include file="$(find agv05_executor)/launch/executorx.launch" pass_all_args="true"/>
+</launch>

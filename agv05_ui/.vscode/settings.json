@@ -1,0 +1,19 @@
+{ 
+  "files.watcherExclude":{
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/.hg/store/**": true,
+    "**/dist/*/**": true,
+    "**/static/*/**": true,
+    "**/media/*/**": true
+  },
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true,
+  "python.linting.flake8Args": ["--max-line-length=199", "--ignore=W606,W605,W504,E128,F841,E731"],
+  "python.linting.flake8Path": "flake8",
+  "python.formatting.autopep8Args": ["-aa", "--max-line-length=199", "--ignore=E128,E722"],
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+}   

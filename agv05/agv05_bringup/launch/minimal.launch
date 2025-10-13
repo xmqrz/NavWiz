@@ -1,0 +1,21 @@
+<launch>
+  <!-- expose these arguments -->
+  <arg name="dynstorage_backend" default="dynamic_reconfigure_file_storage/FileStorage" />
+  <arg name="dynstorage_backend_py" default="dynamic_reconfigure_file_storage.FileStorage" />
+  <arg name="dynstorage_url" default="file://$(env HOME)/.agv05/dynamic_reconfigure_parameters/" />
+  <arg name="dynstorage_reset" default="false" />
+  <arg name="varstorage_url" default="file://$(env HOME)/.agv05/variable_storage/" />
+
+  <!-- parameters for dynamic_reconfigure -->
+  <param name="dynamic_reconfigure_storage_backend" type="string" value="$(arg dynstorage_backend)" />
+  <param name="dynamic_reconfigure_storage_backend_py" type="string" value="$(arg dynstorage_backend_py)" />
+  <param name="dynamic_reconfigure_storage_url" type="string" value="$(arg dynstorage_url)" />
+  <param name="dynamic_reconfigure_storage_reset" type="bool" value="$(arg dynstorage_reset)" />
+
+  <!-- parameters for variable_storage -->
+  <param name="variable_storage_url" type="string" value="$(arg varstorage_url)" />
+
+  <include file="$(find agv05_bringup)/launch/includes/controllers.launch.xml" />
+  <include file="$(find agv05_bringup)/launch/includes/diagnostics.launch.xml" />
+  <include file="$(find agv05_bringup)/launch/includes/robot_state_publisher.launch.xml" />
+</launch>

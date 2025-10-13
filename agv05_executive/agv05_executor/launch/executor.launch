@@ -1,0 +1,48 @@
+<launch>
+  <arg name="use_sim_time" default="$(optenv AGV05_USE_SIM_TIME false)" />
+  <param name="use_sim_time" type="bool" value="$(arg use_sim_time)" />
+
+  <param name="rosout/omit_topics" value="true" />
+  <param name="rosout_disable_topics_generation" value="true" />
+
+  <arg name="auto_start" default="$(optenv AUTO_START false)" />
+  <arg name="robot_name" default="$(optenv ROBOT_NAME tracked_agv05)" />
+  <arg name="initialize_storage_params" default="true" />
+
+  <group if="$(arg initialize_storage_params)">
+    <param name="dynamic_reconfigure_storage_backend" type="string" value="dynamic_reconfigure_mysql_storage/MysqlStorage" />
+    <param name="dynamic_reconfigure_storage_backend_py" type="string" value="dynamic_reconfigure_mysql_storage.MysqlStorage" />
+    <param name="dynamic_reconfigure_storage_url" type="string" value="mysql://agv05:agv05@localhost/agv05#system_parameter" />
+    <param name="variable_storage_url" type="string" value="mysql://agv05:agv05@localhost/agv05#system_variable" />
+  </group>
+  <param name="robot_name" type="string" value="$(arg robot_name)" />
+
+  <node pkg="agv05_executor" type="execute" name="agv05_executor" launch-prefix="rosrun agv05_executor overlay_chroot" required="true" output="screen">
+    <param name="auto_start" type="bool" value="$(arg auto_start)" />
+  </node>
+
+  <!-- Capabilities Server -->
+  <arg name="capabilities_server_name"          default="capability_server"/>
+  <arg name="capabilities_nodelet_manager_name" default="capability_server_nodelet_manager" />
+  <arg name="capabilities_blacklist"            default="['std_capabilities/MultiEchoLaserSensor', 'std_capabilities/RGBDSensor']" doc="blacklist these specific capabilities from being registered" />
+  <arg name="capabilities_default_providers"    default="{'agv05_capabilities/Agv05Bringup': 'agv05_capabilities/agv05_bringup', 'agv05_capabilities/MobileRobot': '$(optenv AGV05_MOBILE_ROBOT_PROVIDER)'}" doc="default providers" />
+
+  <param name="bond_disable_heartbeat_timeout" type="bool" value="true" />
+
+  <node pkg="capabilities" name="$(arg capabilities_server_name)" type="capability_server" launch-prefix="rosrun agv05_executor overlay_chroot" required="true" output="screen">
+    <rosparam param="blacklist" subst_value="True">$(arg capabilities_blacklist)</rosparam>
+    <rosparam param="nodelet_manager_name" subst_value="True">$(arg capabilities_nodelet_manager_name)</rosparam>
+    <rosparam param="defaults" subst_value="True">$(arg capabilities_default_providers)</rosparam>
+    <param name="use_screen" type="bool" value="True" />
+  </node>
+
+  <!-- Linux Wifi -->
+  <node pkg="linux_wifi" name="wifi_manager" type="wifi_manager" required="true" output="screen"></node>
+
+  <!-- Web Video Server -->
+  <node pkg="web_video_server" type="web_video_server" name="web_video_server">
+    <param name="address" type="string" value="127.0.0.1" />
+    <param name="port" type="int" value="10002" />
+    <param name="default_stream_type" type="string" value="ros_compressed" />
+  </node>
+</launch>

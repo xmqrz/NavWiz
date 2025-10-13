@@ -1,0 +1,14 @@
+%YAML 1.1
+---
+name: agv05_bringup
+spec_version: 1
+spec_type: provider
+description: 'Implements the Agv05Bringup capability for the Agv05.'
+implements: agv05_capabilities/Agv05Bringup
+launch_file: 'launch/agv05_bringup.launch'
+depends_on:
+  'std_capabilities/Diagnostics':
+    provider: 'agv05_capabilities/diagnostics'
+  'std_capabilities/RobotStatePublisher':
+    provider: 'agv05_capabilities/robot_state_publisher'
+  'agv05_capabilities/MobileRobot': {}

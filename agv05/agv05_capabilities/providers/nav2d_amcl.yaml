@@ -1,0 +1,10 @@
+%YAML 1.1
+---
+name: nav2d_amcl
+spec_version: 1
+spec_type: provider
+description: 'Implements the Navigation2D (AMCL) capability for trackless Agv05.'
+implements: std_capabilities/Navigation2D
+launch_file: 'launch/nav2d_amcl.launch'
+depends_on:
+  - 'agv05_capabilities/Agv05Bringup'

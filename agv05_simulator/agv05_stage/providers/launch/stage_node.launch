@@ -1,0 +1,20 @@
+<launch>
+  <arg name="use_gui" default="$(optenv AGV05_STAGE_USE_GUI true)"/>
+  <arg name="world" default="$(optenv AGV05_STAGE_WORLD hospital)"/>
+
+  <node pkg="agv05_stage" type="agv05_stage" name="agv05_stage" output="screen">
+    <param name="use_gui" value="$(arg use_gui)"/>
+    <param name="world_file" value="$(find agv05_stage)/world/$(arg world).world"/>
+  </node>
+
+  <!-- nav2d scan -->
+  <param name="nav2d_scan_topics" value="scan" />
+
+  <!-- agv05_lidar scan -->
+  <rosparam param="primary_obstacle_scan_topics">
+    scan: Front Laser
+  </rosparam>
+
+  <!-- robot description -->
+  <param name="robot_description" textfile="$(find agv05_stage)/urdf/dummy.urdf" />
+</launch>

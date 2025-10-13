@@ -1,0 +1,6 @@
+/* custom style for date-picker-svelte */
+.date-time-field > input[type='text'] {
+  @apply input;
+  @apply py-2 !important;
+  @apply px-3 !important;
+}

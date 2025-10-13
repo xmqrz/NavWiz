@@ -1,0 +1,10 @@
+time stamp
+bool enabled
+float64 left_distance
+float64 right_distance
+float32 left_current
+float32 right_current
+float32 left_temperature
+float32 right_temperature
+int16 left_error
+int16 right_error

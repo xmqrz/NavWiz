@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv05_gazebo</name>
+  <version>2.0.0</version>
+  <description>
+    The agv05_gazebo package provides a simulator mobile robot using the Gazebo library.
+  </description>
+  <author email="yiliang.df@gmail.com">Ng Yi Liang</author>
+  <maintainer email="patrick@dfautomation.com">Patrick Chin</maintainer>
+  <license file="COPYRIGHT">Copyright (C) 2017 DF Automation and Robotics Sdn. Bhd.</license>
+  <url type="repository">https://gitlab.com/dfautomation/product/navwiz/agv05_simulator</url>
+  <url type="bugtracker">https://gitlab.com/dfautomation/product/navwiz/agv05_simulator/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>agv05_capabilities</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>gazebo_ros_pkgs</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+  <test_depend>roslaunch</test_depend>
+
+  <export>
+    <capability_provider>
+      providers/gazebo_node.yaml
+    </capability_provider>
+    <gazebo_ros gazebo_model_path="${prefix}/models"/>
+    <gazebo_ros gazebo_media_path="${prefix}/world"/>
+  </export>
+</package>

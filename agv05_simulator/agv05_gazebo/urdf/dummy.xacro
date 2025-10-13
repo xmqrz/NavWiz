@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<robot name="gazebo" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="mass" value="1" /> <!-- arbitrary value for mass -->
+  <xacro:property name="width" value="0.5" /> <!-- Square dimensions (widthxwidth) of beams -->
+  <xacro:property name="height1" value="0.5" /> <!-- Block -->
+  <xacro:property name="axel_offset" value="0.05" />
+
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <xacro:include filename="$(find agv05_gazebo)/urdf/agv05.gazebo" />
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find agv05_gazebo)/urdf/materials.xacro" />
+
+  <!-- Used for fixing robot to Gazebo 'base_link' -->
+  <link name="base"/>
+
+  <joint name="wheel_joint" type="fixed">
+    <parent link="base"/>
+    <child link="wheel"/>
+  </joint>
+
+  <link name="wheel"/>
+
+  <joint name="fixed" type="fixed">
+    <parent link="base"/>
+    <child link="block"/>
+  </joint>
+
+  <!-- robot 3d setting (collision,visual,intertial) -->
+  <link name="block">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${width} ${width} ${height1}"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${width} ${width} ${height1}"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="${mass}"/>
+      <inertia
+        ixx="${mass / 12.0 * (width*width + height1*height1)}" ixy="0.0" ixz="0.0"
+        iyy="${mass / 12.0 * (height1*height1 + width*width)}" iyz="0.0"
+        izz="${mass / 12.0 * (width*width + width*width)}"/>
+    </inertial>
+  </link>
+
+  <!-- laser joint (fixed the laser sight on top of the block)-->
+  <joint name="hokuyo_joint" type="fixed">
+    <axis xyz="0 0.5 0" />
+    <origin xyz="0 0 ${height1 - axel_offset/2}" rpy="0 0 0"/>
+    <parent link="block"/>
+    <child link="hokuyo_link"/>
+  </joint>
+
+  <!-- Hokuyo Laser -->
+  <link name="hokuyo_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://agv05_gazebo/meshes/hokuyo.dae"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+  <joint name="laser_joint" type="fixed">
+    <parent link="hokuyo_link"/>
+    <child link="laser"/>
+  </joint>
+
+  <link name="laser"/>
+
+</robot>

@@ -1,0 +1,38 @@
+include "agv05.inc"
+include "map.inc"
+
+# robot
+agv05
+(
+  name "agv05"
+  pose [ 0.0 0.0 0.0 0.0 ]
+)
+
+# floor
+floorplan
+(
+  name "cave"
+  bitmap "cave.png"
+  size [ 16.0 16.0 1.6 ]
+  pose [ 4.0 0.0 0.0 0.0 ]
+)
+
+window
+(
+  size [ 600 600 ]  # in pixels
+  scale 25  # pixels per meter
+  center [ 0.0  0.0 ]
+  rotate [ 0.0  0.0 ]
+
+  show_data 1  # 1=on 0=off
+)
+
+
+# set the resolution of the underlying raytrace model in meters
+resolution 0.01
+
+interval_sim 100  # simulation timestep in milliseconds
+
+# Not available in default-shipped Stage v4.1.1
+# skip confirmation dialog when quitting
+confirm_on_quit 0

@@ -1,0 +1,10 @@
+%YAML 1.1
+---
+name: simulator_robot_state_publisher
+spec_version: 1
+spec_type: provider
+description: 'Implements the RobotStatePublisher capability for the simulator robot.'
+implements: std_capabilities/RobotStatePublisher
+launch_file: 'launch/robot_state_publisher.launch'
+depends_on:
+    'agv05_capabilities/SimulatorMobileRobot': {}

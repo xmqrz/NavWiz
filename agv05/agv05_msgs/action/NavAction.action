@@ -1,0 +1,95 @@
+## goal
+uint8 nav
+uint8 line_follow_type
+float32 speed
+bool enable_sensor
+float32 distance
+uint8 io_trigger_type
+uint8 io_trigger_port
+uint8 io_trigger_pin
+uint8 error_io_trigger_type
+uint8 error_io_trigger_port
+uint8 error_io_trigger_pin
+uint8 rotate_align_sensor
+uint8 next_motion
+float32 next_speed
+float32 next_distance
+uint8 NAV_IDLE=0
+uint8 NAV_FORWARD=1
+uint8 NAV_FORWARD_LEFT=2
+uint8 NAV_FORWARD_RIGHT=3
+uint8 NAV_REVERSE=4
+uint8 NAV_REVERSE_LEFT=5
+uint8 NAV_REVERSE_RIGHT=6
+uint8 NAV_BEZIER_FORWARD=7
+uint8 NAV_BEZIER_FORWARD_LEFT=8
+uint8 NAV_BEZIER_FORWARD_RIGHT=9
+uint8 NAV_BEZIER_REVERSE=10
+uint8 NAV_BEZIER_REVERSE_LEFT=11
+uint8 NAV_BEZIER_REVERSE_RIGHT=12
+uint8 NAV_ROTATE_LEFT=13
+uint8 NAV_ROTATE_RIGHT=14
+uint8 NAV_UTURN_LEFT=15
+uint8 NAV_UTURN_RIGHT=16
+uint8 NAV_ROTATE3Q_LEFT=17
+uint8 NAV_ROTATE3Q_RIGHT=18
+uint8 NAV_SEARCH_LINE_LEFT=19
+uint8 NAV_SEARCH_LINE_RIGHT=20
+uint8 NAV_MANUAL_CONTROL=21
+uint8 NAV_LINE_CALIBRATE=22
+uint8 NAV_LINE_TUNE_PID=23
+uint8 NAV_SELECT_NAV_PROFILE1=24
+uint8 NAV_SELECT_NAV_PROFILE5=28
+uint8 NAV_SELECT_LASER_PROFILE1=29
+uint8 NAV_SELECT_LASER_PROFILE10=38
+uint8 NAV_SCAN_LASER_AREA1=39
+uint8 NAV_SCAN_LASER_AREA31=69
+uint8 NAV_FREE_MOTOR=70
+uint8 NAV_WAIT_TRAFFIC=71
+uint8 NAV_MAX_NUMBER=72  # use to trace maximum number for nav
+uint8 LINE_FOLLOW_TRACK=0
+uint8 LINE_FOLLOW_ODOM_1D=1
+uint8 LINE_FOLLOW_ODOM_2D=2
+uint8 LINE_FOLLOW_MAX_NUMBER=3
+uint8 ALIGN_SENSOR_FRONT=0
+uint8 ALIGN_SENSOR_REAR=1
+uint8 ALIGN_SENSOR_MAX_NUMBER=2
+uint8 MOTION_IDLE=0
+uint8 MOTION_NONSTOP=1
+uint8 MOTION_LEFT=2
+uint8 MOTION_RIGHT=3
+uint8 MOTION_NONSTOP_BEZIER=4
+uint8 MOTION_MAX_NUMBER=5
+---
+## result
+uint8 result
+uint8 RESULT_SUCCESS=1
+uint8 RESULT_FAIL=2
+uint8 RESULT_IO_DETECTED=3
+uint8 RESULT_ERROR_TRIGGERED=4
+---
+## feedback
+uint8 status
+# normal status
+uint8 STATUS_NORMAL=1
+uint8 STATUS_PAUSED=2
+# safety status type 1 that require safety clear at the nav
+uint8 STATUS_NAVIGATION_FAILED=3  # suggested status for when navigation is not possible due to error (trackless)
+uint8 STATUS_OUT_OF_LINE=4
+uint8 STATUS_BUMPER_BLOCKED=5
+uint8 STATUS_EXTERNAL_SAFETY_TRIGGER=6
+uint8 STATUS_EMERGENCY_BUTTON_PRESSED=7
+uint8 STATUS_CHARGER_CONNECTED=8
+uint8 STATUS_LASER_MALFUNCTION=9
+uint8 STATUS_LINE_SENSOR_ERROR=10
+uint8 STATUS_DRIVE_OVERLIMIT_ERROR=11
+uint8 STATUS_MOTOR_FAULT=12
+uint8 STATUS_WHEEL_SLIPPAGE=13
+uint8 STATUS_SYSTEM_ERROR=14
+# safety status type 2 that do not require safety clear at the nav
+uint8 STATUS_OBSTACLE_BLOCKED=21
+uint8 STATUS_OBSTACLE_IN_RANGE=22
+uint8 STATUS_PLAN_EMPTY=23
+uint8 STATUS_WAIT_TRAFFIC=29
+# safety status when type 1 activated but safety resume is not yet received
+uint8 STATUS_SAFETY_TRIGGERED=30

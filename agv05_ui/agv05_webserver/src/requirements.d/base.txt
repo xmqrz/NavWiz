@@ -1,0 +1,25 @@
+-r base-indirect.txt
+Django>=1.11,<2.0
+contextdecorator
+django-bootstrap3<12
+django-celery
+django-cleanup<5
+django-crispy-forms==1.6.1
+django-enumfields<2
+django-extensions==2.0.7
+django-filter==1.1.0
+django-formtools==2.1
+django-redis==4.10.0
+django-sendfile==0.3.10
+djangorestframework>=3.8,<3.10
+iptools
+mysqlclient<1.4
+networkx<2
+pycryptodomex
+pyotp==2.3.0
+requests==2.18.4
+git+https://github.com/dfautomation/Robohash@strip#egg=robohash
+git+https://github.com/dfautomation/wraptor@python-six
+shapely==1.7.1
+sockjs-tornado
+ujson

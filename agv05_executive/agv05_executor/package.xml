@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv05_executor</name>
+  <version>3.2.0</version>
+  <description>
+    The agv05_executor package provides executor for the tasks in AGV05.
+  </description>
+  <author email="patrick@dfautomation.com">Patrick Chin</author>
+  <maintainer email="patrick@dfautomation.com">Patrick Chin</maintainer>
+  <license file="COPYRIGHT">Copyright (C) 2015 DF Automation and Robotics Sdn. Bhd.</license>
+  <url type="repository">https://gitlab.com/dfautomation/product/navwiz/agv05_executive</url>
+  <url type="bugtracker">https://gitlab.com/dfautomation/product/navwiz/agv05_executive/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>dynamic_reconfigure</depend>
+
+  <exec_depend>actionlib</exec_depend>
+  <exec_depend>agv05_capabilities</exec_depend>
+  <exec_depend>agv05_executive_msgs</exec_depend>
+  <exec_depend>agv05_msgs</exec_depend>
+  <exec_depend>agv05_webserver</exec_depend>
+  <exec_depend>capabilities</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>linux_wifi</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg</exec_depend>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-rospkg</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>smach</exec_depend>
+  <exec_depend>smach_ros</exec_depend>
+  <exec_depend>std_capabilities</exec_depend>
+  <exec_depend>std_srvs</exec_depend>
+  <exec_depend>tf</exec_depend>
+  <exec_depend>web_video_server</exec_depend>
+
+  <test_depend>roslaunch</test_depend>
+  <test_depend>roslint</test_depend>
+  <test_depend>rostest</test_depend>
+</package>

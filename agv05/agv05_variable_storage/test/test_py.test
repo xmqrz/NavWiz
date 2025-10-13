@@ -1,0 +1,10 @@
+<launch>
+  <test test-name="test_file_py" pkg="agv05_variable_storage" type="test.py">
+    <param name="variable_storage_url" value="file://$(env HOME)/.agv05/variable_storage/" />
+  </test>
+  <!--
+  <test test-name="test_mysql_py" pkg="agv05_variable_storage" type="test.py">
+    <param name="variable_storage_url" value="mysql://root:@localhost/agv05#system_variable" />
+  </test>
+  -->
+</launch>

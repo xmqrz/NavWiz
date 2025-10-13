@@ -1,0 +1,8 @@
+{
+  "config_panel": "Config Panel",
+  "user_panel": "User Panel",
+  "logout": "Logout",
+  "login": "Login",
+  "change_password": "Change Password",
+  "login_fail": "Fail to login with backend server."
+}

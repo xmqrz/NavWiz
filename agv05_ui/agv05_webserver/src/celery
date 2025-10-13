@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+import rospy
+
+if __name__ == "__main__":
+    import agv05_webserver.celery
+    from celery.bin import celery
+    base = celery.CeleryCommand(app=agv05_webserver.celery.app)
+    base.execute_from_commandline(rospy.myargv())

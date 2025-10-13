@@ -1,0 +1,11 @@
+uint8 activation
+uint8 OBSTACLE_NORMAL=0
+uint8 OBSTACLE_FAR_BLOCKED=1
+uint8 OBSTACLE_MIDDLE_BLOCKED=2
+uint8 OBSTACLE_NEAR_BLOCKED=3
+uint8 OBSTACLE_MALFUNCTION=4
+bool far_blocked
+bool middle_blocked
+bool near_blocked
+bool malfunction
+string hint

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv05_panel</name>
+  <version>3.2.0</version>
+  <description>The panel controller for AGV05.</description>
+  <author email="patrick@dfautomation.com">Patrick Chin</author>
+  <maintainer email="patrick@dfautomation.com">Patrick Chin</maintainer>
+  <license file="COPYRIGHT">Copyright (C) 2020 DF Automation and Robotics Sdn. Bhd.</license>
+  <url type="repository">https://gitlab.com/dfautomation/product/navwiz/agv05</url>
+  <url type="bugtracker">https://gitlab.com/dfautomation/product/navwiz/agv05/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>agv05_msgs</depend>
+  <depend>diagnostic_updater</depend>
+  <depend>dynamic_reconfigure</depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+
+  <test_depend>roslint</test_depend>
+</package>

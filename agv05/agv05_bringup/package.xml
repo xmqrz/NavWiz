@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv05_bringup</name>
+  <version>3.2.0</version>
+  <description>
+    The agv05_bringup packages provides roslaunch scripts for starting the AGV05 functionality.
+  </description>
+  <author email="patrick@dfautomation.com">Patrick Chin</author>
+  <maintainer email="patrick@dfautomation.com">Patrick Chin</maintainer>
+  <license file="COPYRIGHT">Copyright (C) 2015 DF Automation and Robotics Sdn. Bhd.</license>
+  <url type="repository">https://gitlab.com/dfautomation/product/navwiz/agv05</url>
+  <url type="bugtracker">https://gitlab.com/dfautomation/product/navwiz/agv05/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>agv05_audio_player</exec_depend>
+  <exec_depend>agv05_description</exec_depend>
+  <exec_depend>agv05_joy</exec_depend>
+  <exec_depend>agv05_led_control_mux</exec_depend>
+  <exec_depend>agv05_lidar</exec_depend>
+  <exec_depend>agv05_line_sensor</exec_depend>
+  <exec_depend>agv05_menu_panel</exec_depend>
+  <exec_depend>agv05_modbus_client</exec_depend>
+  <exec_depend>agv05_modbus_server</exec_depend>
+  <exec_depend>agv05_motor</exec_depend>
+  <exec_depend>agv05_nav</exec_depend>
+  <exec_depend>agv05_navx</exec_depend>
+  <exec_depend>agv05_obstacle_sensor</exec_depend>
+  <exec_depend>agv05_panel</exec_depend>
+  <exec_depend>agv05_power</exec_depend>
+  <exec_depend>agv05_remote_io</exec_depend>
+  <exec_depend>agv05_safety</exec_depend>
+  <exec_depend>agv05_state_filter</exec_depend>
+  <exec_depend>amcl</exec_depend>
+  <exec_depend version_gte="1.0.0">cartographer_ros</exec_depend>
+  <exec_depend>cpu_status</exec_depend>
+  <exec_depend>diagnostic_aggregator</exec_depend>
+  <exec_depend>diagnostic_recorder</exec_depend>
+  <exec_depend>dynamic_reconfigure_file_storage</exec_depend>
+  <exec_depend>gmapping</exec_depend>
+  <exec_depend>human_follower</exec_depend>
+  <exec_depend>joy</exec_depend>
+  <exec_depend>libsensors_monitor</exec_depend>
+  <exec_depend>marker_localization</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>slam_toolbox</exec_depend>
+
+  <test_depend>roslaunch</test_depend>
+</package>

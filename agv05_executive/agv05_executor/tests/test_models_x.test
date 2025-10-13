@@ -1,0 +1,5 @@
+<launch>
+  <arg name="coverage_args" value="" if="$(optenv NO_COVERAGE false)"/>
+  <arg name="coverage_args" value="--cov" unless="$(optenv NO_COVERAGE false)"/>
+  <test test-name="test_models_x" pkg="agv05_executor" type="test_models_x.py" args="$(arg coverage_args)" time-limit="90.0"/>
+</launch>

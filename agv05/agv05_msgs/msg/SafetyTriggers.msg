@@ -1,0 +1,10 @@
+bool bumper_front
+bool bumper_rear
+bool emergency_button
+bool safety_in_1
+bool safety_in_2
+bool motor_fault
+bool wheel_slippage
+bool charger_connected
+bool system_error
+bool nav_trigger

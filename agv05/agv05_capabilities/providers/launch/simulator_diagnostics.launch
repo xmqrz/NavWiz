@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find agv05_bringup)/launch/includes/diagnostics.launch.xml">
+    <arg name="simulator" value="true" />
+  </include>
+</launch>

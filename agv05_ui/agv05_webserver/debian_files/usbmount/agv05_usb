@@ -1,0 +1,21 @@
+#!/bin/sh
+USB_FILE=/media/usb/agv05_usb
+
+agv05_download_log()
+{
+  MAGIC_KEY=agv05_download_log
+  FOLDER=/media/usb/navwiz_log_$(date +"%Y%m%d_%H%M%S")
+
+  if [ ! -f "$USB_FILE" ] || ! grep -q "$MAGIC_KEY" "$USB_FILE"; then
+    return;
+  fi
+
+  [ ! -d "$FOLDER" ] && mkdir $FOLDER
+  [ ! -d "$FOLDER/logs" ] && mkdir "$FOLDER/logs"
+  [ ! -d "$FOLDER/diagnostics" ] && mkdir "$FOLDER/diagnostics"
+
+  cp -r /var/log/navwiz/* "$FOLDER/logs"
+  cp -r /var/lib/navwiz/.ros/diagnostics/* "$FOLDER/diagnostics"
+}
+
+agv05_download_log

@@ -1,0 +1,92 @@
+## goal
+uint8 nav
+float32 speed
+float32 goal_tolerance
+bool enable_sensor
+string marker_type
+geometry_msgs/Pose2D path_start
+geometry_msgs/Pose2D path_end
+geometry_msgs/Pose2D path_cp1
+geometry_msgs/Pose2D path_cp2
+Path paths
+uint8 sense_line
+uint8 io_trigger_type
+uint8 io_trigger_port
+uint8 io_trigger_pin
+uint8 error_io_trigger_type
+uint8 error_io_trigger_port
+uint8 error_io_trigger_pin
+uint8 next_motion
+float32 next_speed
+float32 next_distance
+uint8 NAV_IDLE=0
+uint8 NAV_FORWARD=1
+uint8 NAV_REVERSE=2
+uint8 NAV_BEZIER_FORWARD=3
+uint8 NAV_BEZIER_REVERSE=4
+uint8 NAV_FORWARD_DOCK=5
+uint8 NAV_REVERSE_DOCK=6
+uint8 NAV_FORWARD_UNDOCK=7
+uint8 NAV_REVERSE_UNDOCK=8
+uint8 NAV_ROTATE_LEFT=9
+uint8 NAV_ROTATE_RIGHT=10
+uint8 NAV_SELECT_NAV_PROFILE1=11
+uint8 NAV_SELECT_NAV_PROFILE5=15
+uint8 NAV_SELECT_LASER_PROFILE1=16
+uint8 NAV_SELECT_LASER_PROFILE10=25
+uint8 NAV_DYNAMIC_FORWARD=26
+uint8 NAV_DYNAMIC_REVERSE=27
+uint8 NAV_DYNAMIC_LINE_FORWARD=28
+uint8 NAV_DYNAMIC_LINE_REVERSE=29
+uint8 NAV_DYNAMIC_BEZIER_FORWARD=30
+uint8 NAV_DYNAMIC_BEZIER_REVERSE=31
+uint8 NAV_OMNI=32
+uint8 NAV_BEZIER_OMNI=33
+uint8 NAV_OMNI_DOCK=34
+uint8 NAV_OMNI_UNDOCK=35
+uint8 NAV_DYNAMIC_OMNI=36
+uint8 NAV_DYNAMIC_LINE_OMNI=37
+uint8 NAV_DYNAMIC_BEZIER_OMNI=38
+uint8 NAV_MAX_NUMBER=39  # used to track maximum number for nav
+uint8 MOTION_IDLE=0
+uint8 MOTION_NONSTOP=1
+uint8 MOTION_LEFT=2
+uint8 MOTION_RIGHT=3
+uint8 MOTION_NONSTOP_BEZIER=4
+uint8 MOTION_MAX_NUMBER=5
+float32 TOLERANCE_MID=-1.0
+float32 TOLERANCE_GOAL=-2.0
+float32 NEXT_DISTANCE_MAX=10000.0
+---
+## result
+uint8 result
+uint8 RESULT_SUCCESS=1
+uint8 RESULT_FAIL=2
+uint8 RESULT_IO_DETECTED=3
+uint8 RESULT_ERROR_TRIGGERED=4
+---
+## feedback
+uint8 status
+# normal status
+uint8 STATUS_NORMAL=1
+uint8 STATUS_PAUSED=2
+# safety status type 1 that require safety clear at the nav
+uint8 STATUS_NAVIGATION_FAILED=3  # suggested status for when navigation is not possible due to error (trackless)
+uint8 STATUS_OUT_OF_LINE=4
+uint8 STATUS_BUMPER_BLOCKED=5
+uint8 STATUS_EXTERNAL_SAFETY_TRIGGER=6
+uint8 STATUS_EMERGENCY_BUTTON_PRESSED=7
+uint8 STATUS_CHARGER_CONNECTED=8
+uint8 STATUS_LASER_MALFUNCTION=9
+uint8 STATUS_LINE_SENSOR_ERROR=10
+uint8 STATUS_DRIVE_OVERLIMIT_ERROR=11
+uint8 STATUS_MOTOR_FAULT=12
+uint8 STATUS_WHEEL_SLIPPAGE=13
+uint8 STATUS_SYSTEM_ERROR=14
+# safety status type 2 that do not require safety clear at the nav
+uint8 STATUS_OBSTACLE_BLOCKED=21
+uint8 STATUS_OBSTACLE_IN_RANGE=22
+uint8 STATUS_PLAN_EMPTY=23
+uint8 STATUS_WAIT_TRAFFIC=29
+# safety status when type 1 activated but safety resume is not yet received
+uint8 STATUS_SAFETY_TRIGGERED=30

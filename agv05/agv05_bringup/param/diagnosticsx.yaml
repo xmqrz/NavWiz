@@ -1,0 +1,30 @@
+amcl:
+  type: diagnostic_aggregator/GenericAnalyzer
+  path: 'AMCL'
+  timeout: 5.0
+  startswith: 'amcl'
+  remove_prefix: amcl
+human_follower:
+  type: diagnostic_aggregator/DiscardAnalyzer
+  path: 'Human Follower'
+  timeout: 5.0
+  startswith: 'human_follower'
+  remove_prefix: human_follower
+marker_localization:
+  type: diagnostic_aggregator/GenericAnalyzer
+  path: 'Marker Detection'
+  timeout: 5.0
+  startswith: 'marker_localization'
+  remove_prefix: marker_localization
+navx:
+  type: diagnostic_aggregator/GenericAnalyzer
+  path: 'Navigation (Trackless)'
+  timeout: 5.0
+  startswith: 'agv05_navx'
+  remove_prefix: agv05_navx
+state_filter:
+  type: diagnostic_aggregator/GenericAnalyzer
+  path: 'State Filter'
+  timeout: 5.0
+  startswith: 'agv05_state_filter'
+  remove_prefix: agv05_state_filter

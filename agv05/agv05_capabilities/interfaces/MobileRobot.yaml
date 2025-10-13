@@ -1,0 +1,291 @@
+%YAML 1.1
+---
+name: MobileRobot
+version: 5
+spec_version: 1
+spec_type: interface
+description: 'Mobile robot plugin interface for the Agv05 system'
+interface:
+  topics:
+    provides:
+      'agv05/io/port1/input':
+        type: 'std_msgs/UInt16'
+      'agv05/io/port2/input':
+        type: 'std_msgs/UInt16'
+      'agv05/io/port3/input':
+        type: 'std_msgs/UInt16'
+      'agv05/io/port4/input':
+        type: 'std_msgs/UInt16'
+      'agv05/io/port5/input':
+        type: 'std_msgs/UInt16'
+      'agv05/io/port6/input':
+        type: 'std_msgs/UInt16'
+      'agv05/io/port7/input':
+        type: 'std_msgs/UInt16'
+      'agv05/io/port8/input':
+        type: 'std_msgs/UInt16'
+      'agv05/line_sensor/front_sensor':
+        type: 'agv05_msgs/LineSensor'
+      'agv05/line_sensor/rear_sensor':
+        type: 'agv05_msgs/LineSensor'
+      'agv05/motor/fault_hint':
+        type: 'std_msgs/String'
+      'agv05/motor/feedback':
+        type: 'agv05_msgs/MotorFeedback'
+      'agv05/motor/feedback_rate':
+        type: 'std_msgs/Float32'
+      'agv05/motor/max_speed':
+        type: 'std_msgs/Float32'
+      'agv05/motor/max_twist':
+        type: 'geometry_msgs/Twist'
+      'agv05/motor/mecanum/feedback':
+        type: 'agv05_msgs/MecanumFeedback'
+      'agv05/motor/navigation_enable':
+        type: 'std_msgs/Bool'
+      'agv05/motor/steering/feedback':
+        type: 'agv05_msgs/SteeringFeedback'
+      'agv05/motor/swerve/feedback':
+        type: 'agv05_msgs/SwerveFeedback'
+      'agv05/msb/msb_front_raw':
+        type: 'agv05_msgs/MsbRaw'
+      'agv05/msb/msb_front_raw_rate':
+        type: 'std_msgs/Float32'
+      'agv05/msb/msb_front2_raw':
+        type: 'agv05_msgs/MsbRaw'
+      'agv05/msb/msb_front2_raw_rate':
+        type: 'std_msgs/Float32'
+      'agv05/msb/msb_rear_raw':
+        type: 'agv05_msgs/MsbRaw'
+      'agv05/msb/msb_rear_raw_rate':
+        type: 'std_msgs/Float32'
+      'agv05/msb/msb_rear2_raw':
+        type: 'agv05_msgs/MsbRaw'
+      'agv05/msb/msb_rear2_raw_rate':
+        type: 'std_msgs/Float32'
+      'agv05/panel/button_power':
+        type: 'std_msgs/Bool'
+      'agv05/panel/button_start':
+        type: 'std_msgs/Bool'
+      'agv05/panel/button_stop':
+        type: 'std_msgs/Bool'
+      'agv05/panel/button_unbrake':
+        type: 'std_msgs/Bool'
+      'agv05/power/battery_state':
+        type: 'agv05_msgs/BatteryState'
+      'agv05/power/source':
+        type: 'agv05_msgs/PowerSource'
+      'agv05/rfid/rfid_front':
+        type: 'std_msgs/String'
+      'agv05/rfid/rfid_rear':
+        type: 'std_msgs/String'
+      'agv05/safety/bumper_front':
+        type: 'std_msgs/Bool'
+      'agv05/safety/bumper_rear':
+        type: 'std_msgs/Bool'
+      'agv05/safety/emergency_button':
+        type: 'std_msgs/Bool'
+      'agv05/safety/heartbeat/amr_node':
+        type: 'std_msgs/UInt8'
+      'agv05/safety/motor_fault':
+        type: 'std_msgs/Bool'
+      'agv05/safety/safety_external1':
+        type: 'std_msgs/Bool'
+      'agv05/safety/safety_external2':
+        type: 'std_msgs/Bool'
+      'camera1/color/camera_info':
+        type: 'sensor_msgs/CameraInfo'
+      'camera2/color/camera_info':
+        type: 'sensor_msgs/CameraInfo'
+      'camera3/color/camera_info':
+        type: 'sensor_msgs/CameraInfo'
+      'camera4/color/camera_info':
+        type: 'sensor_msgs/CameraInfo'
+      'camera5/color/camera_info':
+        type: 'sensor_msgs/CameraInfo'
+      'camera1/color/image_raw':
+        type: 'sensor_msgs/Image'
+      'camera2/color/image_raw':
+        type: 'sensor_msgs/Image'
+      'camera3/color/image_raw':
+        type: 'sensor_msgs/Image'
+      'camera4/color/image_raw':
+        type: 'sensor_msgs/Image'
+      'camera5/color/image_raw':
+        type: 'sensor_msgs/Image'
+      'camera1/depth/camera_info':
+        type: 'sensor_msgs/CameraInfo'
+      'camera2/depth/camera_info':
+        type: 'sensor_msgs/CameraInfo'
+      'camera3/depth/camera_info':
+        type: 'sensor_msgs/CameraInfo'
+      'camera4/depth/camera_info':
+        type: 'sensor_msgs/CameraInfo'
+      'camera5/depth/camera_info':
+        type: 'sensor_msgs/CameraInfo'
+      'camera1/depth/image_rect_raw':
+        type: 'sensor_msgs/Image'
+      'camera2/depth/image_rect_raw':
+        type: 'sensor_msgs/Image'
+      'camera3/depth/image_rect_raw':
+        type: 'sensor_msgs/Image'
+      'camera4/depth/image_rect_raw':
+        type: 'sensor_msgs/Image'
+      'camera5/depth/image_rect_raw':
+        type: 'sensor_msgs/Image'
+      'camera1/scan':
+        type: 'sensor_msgs/LaserScan'
+      'camera2/scan':
+        type: 'sensor_msgs/LaserScan'
+      'camera3/scan':
+        type: 'sensor_msgs/LaserScan'
+      'camera4/scan':
+        type: 'sensor_msgs/LaserScan'
+      'camera5/scan':
+        type: 'sensor_msgs/LaserScan'
+      'hardware_info':
+        type: 'agv05_msgs/HardwareInfo'
+      'imu/data':
+        type: 'sensor_msgs/Imu'
+      'laser_name/activation':
+        type: 'agv05_msgs/ObstacleSensor'
+      'marker_custom':
+        type: 'agv05_msgs/Marker2D'
+      'odom/wheel':
+        type: 'nav_msgs/Odometry'
+      'scan':
+        type: 'sensor_msgs/LaserScan'
+      'scan2':
+        type: 'sensor_msgs/LaserScan'
+      'scan3':
+        type: 'sensor_msgs/LaserScan'
+      'scan4':
+        type: 'sensor_msgs/LaserScan'
+      'scan5':
+        type: 'sensor_msgs/LaserScan'
+      'scan6':
+        type: 'sensor_msgs/LaserScan'
+      'shutdown_success':
+        type: 'std_msgs/Bool'
+
+    requires:
+      'agv05/io/port1/output':
+        type: 'agv05_msgs/OutputPort'
+      'agv05/io/port2/output':
+        type: 'agv05_msgs/OutputPort'
+      'agv05/io/port3/output':
+        type: 'agv05_msgs/OutputPort'
+      'agv05/io/port4/output':
+        type: 'agv05_msgs/OutputPort'
+      'agv05/io/port5/output':
+        type: 'agv05_msgs/OutputPort'
+      'agv05/io/port6/output':
+        type: 'agv05_msgs/OutputPort'
+      'agv05/io/port7/output':
+        type: 'agv05_msgs/OutputPort'
+      'agv05/io/port8/output':
+        type: 'agv05_msgs/OutputPort'
+      'agv05/led/blink_tick':
+        type: 'std_msgs/Bool'
+      'agv05/led/mode':
+        type: 'agv05_msgs/LedControl'
+      'agv05/line_sensor/front_calibration':
+        type: 'std_msgs/Bool'
+      'agv05/line_sensor/front_prefer_side':
+        type: 'std_msgs/UInt8'
+      'agv05/line_sensor/rear_calibration':
+        type: 'std_msgs/Bool'
+      'agv05/line_sensor/rear_prefer_side':
+        type: 'std_msgs/UInt8'
+      'agv05/motor/control':
+        type: 'agv05_msgs/MotorControl'
+      'agv05/motor/enable':
+        type: 'std_msgs/Bool'
+      'agv05/motor/mecanum/control':
+        type: 'agv05_msgs/MecanumControl'
+      'agv05/motor/steering/control':
+        type: 'agv05_msgs/SteeringControl'
+      'agv05/motor/swerve/control':
+        type: 'agv05_msgs/SwerveControl'
+      'agv05/panel/led_low_batt':
+        type: 'std_msgs/Bool'
+      'agv05/panel/led_start':
+        type: 'std_msgs/Bool'
+      'agv05/panel/led_stop':
+        type: 'std_msgs/Bool'
+      'agv05/power/auto_charging_trigger':
+        type: 'std_msgs/Bool'
+      'agv05/power/battery_percentage_reset':
+        type: 'std_msgs/Bool'
+      'agv05/power/peripherals_relay_control':
+        type: 'std_msgs/Bool'
+      'agv05/safety/mute/bumper':
+        type: 'std_msgs/Bool'
+      'agv05/safety/safety_trigger':
+        type: 'std_msgs/Bool'
+      'cmd_vel':
+        type: 'geometry_msgs/Twist'
+      'laser_name/area':
+        type: 'std_msgs/UInt8'
+      'marker_type':
+        type: 'std_msgs/String'
+      'shutdown':
+        type: 'std_msgs/Bool'
+
+  parameters:
+    provides:
+      'agv05_executor/dock_charger_timeout':
+        type: 'float'
+        description: 'Failure timeout of Dock Charger skill'
+      'agv05_line_sensor/disabled':
+        type: 'boolean'
+        description: 'True to disable NavWiz Line Sensor node'
+      'agv05_panel/button_power_topics':
+        type: 'string'
+        description: 'A list of space-separated power button topics for multiplexing'
+      'agv05_panel/button_start_topics':
+        type: 'string'
+        description: 'A list of space-separated start button topics for multiplexing'
+      'agv05_panel/button_stop_topics':
+        type: 'string'
+        description: 'A list of space-separated stop button topics for multiplexing'
+      'agv05_panel/button_unbrake_topics':
+        type: 'string'
+        description: 'A list of space-separated unbrake button topics for multiplexing'
+      'agv05_safety/safety_external1_topics':
+        type: 'string'
+        description: 'A list of space-separated external safety 1 topics for multiplexing'
+      'agv05_safety/safety_external2_topics':
+        type: 'string'
+        description: 'A list of space-separated external safety 2 topics for multiplexing'
+      'agv05_safety/safety_heartbeat_topics/amr_node':
+        type: 'string'
+        description: 'Name of the hardware node'
+      'diagnostic_aggregator/analyzers/agv05/analyzers/hardware/analyzers':
+        type: 'string'
+        description: 'A list of hardware diagnostic for logging'
+      'nav2d_scan_topics':
+        type: 'string'
+        description: 'A list of scan topics for localization'
+      'primary_obstacle_scan_topics/laser_topic':
+        type: 'string'
+        description: 'Laser name of the laser_topic inside primary obstacle group'
+      'quaternary_obstacle_scan_topics/laser_topic':
+        type: 'string'
+        description: 'Laser name of the laser_topic inside quaternary obstacle group'
+      'quinary_obstacle_scan_topics/laser_topic':
+        type: 'string'
+        description: 'Laser name of the laser_topic inside quinary obstacle group'
+      'robot_description':
+        type: 'string'
+        description: 'URDF string to represent the current robot model'
+      'secondary_obstacle_scan_topics/laser_topic':
+        type: 'string'
+        description: 'Laser name of the laser_topic inside secondary obstacle group'
+      'tertiary_obstacle_scan_topics/laser_topic':
+        type: 'string'
+        description: 'Laser name of the laser_topic inside tertiary obstacle group'
+
+    requires:
+      'agv05_power/low_battery_level':
+        type: 'float'
+        description: 'Battery low threshold'

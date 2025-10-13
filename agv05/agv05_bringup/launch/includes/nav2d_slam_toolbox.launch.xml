@@ -1,0 +1,68 @@
+<launch>
+  <arg name="base_frame"  default="base"/>
+  <arg name="odom_frame"  default="odom"/>
+  <arg name="map_frame"   default="map"/>
+  <arg name="scan_topic"  default="/scan"/>
+
+  <arg name="resolution" value="$(optenv MAP_RESOLUTION 0.02)" />
+
+  <node pkg="slam_toolbox" type="async_slam_toolbox_node" name="slam_toolbox" output="screen">
+    <param name="base_frame" value="$(arg base_frame)"/>
+    <param name="odom_frame" value="$(arg odom_frame)"/>
+    <param name="map_frame" value="$(arg map_frame)"/>
+    <param name="scan_topic" value="$(arg scan_topic)"/>
+    <param name="mode" value="mapping"/>
+
+    <param name="solver_plugin" value="solver_plugins::CeresSolver"/>
+    <param name="ceres_linear_solver" value="SPARSE_NORMAL_CHOLESKY"/>
+    <param name="ceres_preconditioner" value="SCHUR_JACOBI"/>
+    <param name="ceres_trust_strategy" value="LEVENBERG_MARQUARDT"/>
+    <param name="ceres_dogleg_type" value="TRADITIONAL_DOGLEG"/>
+    <param name="ceres_loss_function" value="None"/>
+
+    <param name="debug_logging" value="false"/>
+    <param name="throttle_scans" value= "1"/>
+    <param name="transform_publish_period" value="0.02"/>
+    <param name="map_update_interval" value="5.0"/>
+    <param name="resolution" value="$(arg resolution)"/>
+    <param name="max_laser_range" value="20.0"/>
+    <param name="minimum_time_interval" value="0.5"/>
+    <param name="transform_timeout" value="0.2"/>
+    <param name="tf_buffer_duration" value="30."/> <!-- set 14400. -->
+    <param name="stack_size_to_use" value="40000000"/>
+    <param name="enable_interactive_mode" value="true"/>
+
+    <param name="use_scan_matching" value="true"/>
+    <param name="use_scan_barycenter" value="true"/>
+    <param name="minimum_travel_distance" value="0.5"/>
+    <param name="minimum_travel_heading" value="0.5"/>
+    <param name="scan_buffer_size" value="10"/>
+    <param name="scan_buffer_maximum_scan_distance" value="10"/>
+    <param name="link_match_minimum_response_fine" value="0.1"/>
+    <param name="link_scan_maximum_distance" value="1.5"/>
+    <param name="loop_search_maximum_distance" value="3.0"/>
+    <param name="do_loop_closing" value="true"/>
+    <param name="loop_match_minimum_chain_size" value="10"/>
+    <param name="loop_match_maximum_variance_coarse" value="3.0"/>
+    <param name="loop_match_minimum_response_coarse" value="0.35"/>
+    <param name="loop_match_minimum_response_fine" value="0.45"/>
+
+    <param name="correlation_search_space_dimension" value="0.5"/>
+    <param name="correlation_search_space_resolution" value="0.01"/>
+    <param name="correlation_search_space_smear_deviation" value="0.1"/>
+
+    <param name="loop_search_space_dimension" value="8.0"/>
+    <param name="loop_search_space_resolution" value="$(arg resolution)"/>
+    <param name="loop_search_space_smear_deviation" value="0.03"/>
+
+    <param name="distance_variance_penalty" value="0.5"/>
+    <param name="angle_variance_penalty" value="1.0"/>
+
+    <param name="fine_search_angle_offset" value="0.00349"/>
+    <param name="coarse_search_angle_offset" value="0.349"/>
+    <param name="coarse_angle_resolution" value="0.0349"/>
+    <param name="minimum_angle_penalty" value="0.9"/>
+    <param name="minimum_distance_penalty" value="0.5"/>
+    <param name="use_response_expansion" value="true"/>
+  </node>
+</launch>

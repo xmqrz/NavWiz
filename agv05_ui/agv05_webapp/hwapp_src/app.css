@@ -1,0 +1,20 @@
+@import '@fortawesome/fontawesome-free/css/fontawesome.css';
+@import '@fortawesome/fontawesome-free/css/solid.css';
+@import 'slickgrid/dist/styles/css/slick.grid.css';
+@import '$lib/styles/billboard.css';
+@import '$lib/styles/custom.css';
+@import '$lib/styles/slickgrid.css';
+@import '$lib/styles/date-picker-svelte.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+html,
+body {
+  @apply h-full overflow-hidden;
+}
+
+#app {
+  @apply h-full;
+}

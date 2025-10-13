@@ -1,0 +1,648 @@
+svg.map-viz {
+  $color-0: #ffa500;
+  $color-1: #e3655b;
+  $color-2: #2e86ab;
+  $color-3: #f07ab5;
+  $color-4: #a657ae;
+
+  /* reset or defaults */
+  fill: none;
+  text {
+    fill: black;
+    stroke: none;
+    user-select: none;
+  }
+
+  /* background: grids & map */
+  #grid-pattern line {
+    /* stroke: #ccc; */
+    stroke: #999;
+    @apply dark:stroke-[#bbb];
+  }
+  #grid-small-pattern line {
+    /* stroke: #ddd; */
+    stroke: #aaa;
+    @apply dark:stroke-[#ccc];
+  }
+  #grid-5cm-pattern line {
+    /* stroke: #ddd; */
+    stroke: #aaa;
+    @apply dark:stroke-[#ccc];
+  }
+  #grid-1cm-pattern line {
+    /* stroke: #ddd; */
+    stroke: #aaa;
+    @apply dark:stroke-[#ccc];
+  }
+  .grid,
+  .grid-small,
+  .grid-5cm,
+  .grid-1cm {
+    /* bug fix for Firefox: mousemove event on viz doesn't fire properly */
+    pointer-events: none;
+  }
+
+  .raw-map,
+  .qmap {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    /* bug fix for Firefox: mousemove event on viz doesn't fire properly */
+    pointer-events: none;
+  }
+  .raw-map:nth-child(n + 2) {
+    opacity: 0.3;
+    mix-blend-mode: multiply;
+  }
+
+  .landmark {
+    opacity: 0.8;
+    fill: blue;
+    stroke: blue;
+    stroke-width: 0;
+
+    &.active {
+      fill: $color-0;
+      stroke: $color-0;
+    }
+    &.dragged {
+      fill: brown;
+      stroke: brown;
+    }
+    &.landmark-lg {
+      stroke-width: 0.2;
+    }
+  }
+  .landmarks-lg .landmark {
+    stroke-width: 0.2;
+  }
+
+  .forbidden-zones,
+  .no-rotate-zones,
+  .loc-hint-zones {
+    polygon {
+      fill-opacity: 0.2;
+      stroke-opacity: 0.5;
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    &.active polygon {
+      cursor: pointer;
+      pointer-events: auto;
+    }
+    &.drag-active polygon {
+      cursor: inherit;
+    }
+
+    circle {
+      fill: #fff;
+      stroke: #000;
+      cursor: move;
+
+      &.active {
+        fill: blue;
+        stroke: darkblue;
+      }
+      &.construct {
+        opacity: 0;
+        cursor: crosshair;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+    .drag-active circle {
+      cursor: inherit;
+    }
+  }
+
+  .forbidden-zones {
+    polygon {
+      fill: red;
+      stroke: red;
+    }
+  }
+  .no-rotate-zones {
+    polygon {
+      fill: yellow;
+      stroke: gold;
+    }
+  }
+
+  .loc-hint-zones {
+    polygon {
+      fill: blue;
+      stroke: blue;
+    }
+  }
+
+  .zones-name {
+    text {
+      font-weight: 500;
+      stroke: white;
+      stroke-opacity: 0.7;
+      paint-order: stroke;
+      dominant-baseline: middle;
+      pointer-events: none;
+      text-anchor: middle;
+
+      &.active {
+        stroke: #facb75;
+      }
+    }
+  }
+
+  .selection-area {
+    polygon {
+      fill: blue;
+      fill-opacity: 0.03;
+      stroke: blue;
+      stroke-opacity: 0.3;
+      stroke-width: 1.5;
+      stroke-dasharray: 4 4;
+      vector-effect: non-scaling-stroke;
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+  /* robot */
+  #agv05 {
+  }
+  .robot {
+    stroke: #000;
+    stroke-width: 0.004;
+    fill: #b0e030;
+  }
+  .payload {
+    fill: orange;
+    opacity: 0.8;
+  }
+  .robot-rotation {
+    stroke: none;
+    fill: #c09090;
+    animation: ani-robot-rotation 2.5s linear infinite;
+  }
+  .robot-path {
+    stroke: #a0d028;
+    stroke-width: 0.06;
+    animation: ani-robot-path 5s linear infinite;
+  }
+  .robot-planner-path {
+    stroke: green;
+    stroke-width: 0.03;
+  }
+  .robot-planner-path-ani {
+    stroke: #a0d028;
+    stroke-width: 0.035;
+    animation: ani-robot-path 5s linear infinite;
+  }
+  @keyframes ani-robot-path {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes ani-robot-rotation {
+    to {
+      transform: rotate(0deg);
+    }
+  }
+
+  .laser-scan {
+    path {
+      stroke: none;
+      fill: rgba(216, 64, 64, 0.7);
+      &.traces {
+        fill: rgb(216, 32, 32);
+      }
+    }
+
+    &.laser2 {
+      path {
+        fill: rgba(232, 176, 64, 0.7);
+        &.traces {
+          fill: rgb(232, 176, 70);
+        }
+      }
+    }
+  }
+
+  .reflector {
+    opacity: 0.8;
+    fill: darkorange;
+    stroke: none;
+  }
+  .reflector.docking {
+    fill: green;
+  }
+  .cloud.docking {
+    fill: green;
+    stroke: none;
+  }
+  .marker,
+  .target circle {
+    opacity: 0.8;
+    fill: #a0d028;
+    stroke: none;
+  }
+
+  /* annotations */
+  .junction {
+    fill: #fff;
+    stroke: #000;
+    stroke-width: 0.05;
+    pointer-events: none;
+
+    &.active {
+      stroke: $color-0;
+      &.layer-1 {
+        stroke: $color-1;
+      }
+      &.layer-2 {
+        stroke: $color-2;
+      }
+      &.layer-3 {
+        stroke: $color-3;
+      }
+      &.layer-4 {
+        stroke: $color-4;
+      }
+    }
+    &.muted {
+      stroke: lightblue;
+    }
+  }
+
+  .path,
+  .path-rail {
+    stroke: #000;
+    &.active {
+      stroke: $color-0;
+      &.layer-1 {
+        stroke: $color-1;
+      }
+      &.layer-2 {
+        stroke: $color-2;
+      }
+      &.layer-3 {
+        stroke: $color-3;
+      }
+      &.layer-4 {
+        stroke: $color-4;
+      }
+    }
+    &.muted {
+      stroke: lightblue;
+    }
+  }
+  .path-dynamic {
+    stroke-dasharray: 0.1;
+  }
+
+  .path-aligned {
+    stroke: olive;
+    &.active {
+      stroke: yellowgreen;
+    }
+  }
+
+  .path,
+  .path-aligned {
+    stroke-width: 0.05;
+  }
+
+  .path-rail {
+    stroke-width: 0.2;
+    stroke-dasharray: 0.02 0.16 0.02 0;
+  }
+
+  .path-branched {
+    stroke: slategray;
+    stroke-width: 0.1;
+  }
+
+  .bezier {
+    stroke: orange;
+    stroke-width: 0.05;
+    &.active {
+      stroke: brown;
+    }
+  }
+
+  #bezier-cp {
+    fill: #fff;
+    stroke-dasharray: 1 0;
+  }
+  .bezier-cp {
+    stroke: orange;
+    stroke-width: 0.025;
+    stroke-dasharray: 0.05;
+
+    .active {
+      stroke: brown;
+    }
+  }
+
+  #station {
+    polygon,
+    path {
+      stroke: currentColor;
+      fill: currentColor;
+    }
+  }
+  .station {
+    stroke: #000;
+    stroke-width: 0.05;
+    color: #000;
+    pointer-events: none;
+
+    &.active {
+      color: $color-0;
+      stroke: $color-0;
+      &.layer-1 {
+        color: $color-1;
+        stroke: $color-1;
+      }
+      &.layer-2 {
+        color: $color-2;
+        stroke: $color-2;
+      }
+      &.layer-3 {
+        color: $color-3;
+        stroke: $color-3;
+      }
+      &.layer-4 {
+        color: $color-4;
+        stroke: $color-4;
+      }
+    }
+    &.active-overlap {
+      stroke: $color-0;
+      &.layer-1 {
+        stroke: $color-1;
+      }
+      &.layer-2 {
+        stroke: $color-2;
+      }
+      &.layer-3 {
+        stroke: $color-3;
+      }
+      &.layer-4 {
+        stroke: $color-4;
+      }
+    }
+    &.aligned {
+      color: olive;
+      &.active {
+        color: yellowgreen;
+      }
+    }
+    &.muted {
+      color: lightblue;
+      stroke: lightblue;
+    }
+  }
+
+  .particle-cloud {
+    color: #ff00ff;
+  }
+
+  .ruler,
+  .ruler-mark,
+  .ruler-mark-small {
+    stroke: #333;
+  }
+  .ruler {
+    stroke-width: 0.025;
+  }
+  .ruler-mark {
+    stroke-width: 0.1;
+    stroke-dasharray: 0.01 0.98 0.01 0;
+  }
+  .ruler-mark-small {
+    stroke-width: 0.05;
+    stroke-dasharray: 0.01 0.18 0.01 0;
+  }
+  .ruler-endpoint {
+    stroke: #333;
+    fill: #fff;
+    stroke-width: 0.03;
+  }
+  .ruler-label {
+    font-size: 0.15pt;
+    font-weight: bold;
+    text-anchor: middle;
+    alignment-baseline: central;
+    /* for compatibility with firefox */
+    dominant-baseline: central;
+    text-shadow: 0 0 4px white;
+  }
+
+  /* Annotations */
+  .icon-annotation {
+    opacity: 0.8;
+    fill: black;
+    stroke: black;
+    stroke-width: 0.2;
+
+    &.active {
+      fill: orange;
+      stroke: orange;
+    }
+
+    &.dragged {
+      fill: brown;
+      stroke: brown;
+    }
+  }
+
+  .text-annotation {
+    font-style: normal;
+    font-weight: bold;
+    text-anchor: middle;
+    alignment-baseline: central;
+    /* for compatibility with firefox */
+    dominant-baseline: central;
+    text-shadow: 0 0 4px white;
+
+    &.active {
+      fill: orange;
+    }
+
+    &.dragged {
+      fill: brown;
+    }
+  }
+
+  .polygon-annotations {
+    polygon {
+      stroke: black;
+      stroke-opacity: 1;
+      stroke-width: 0.07;
+      stroke-dasharray: 0.5 0.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    &.active polygon {
+      cursor: pointer;
+      pointer-events: auto;
+    }
+    &.drag-active polygon {
+      cursor: inherit;
+    }
+    &.construct-active polygon {
+      pointer-events: none;
+    }
+
+    circle {
+      fill: #fff;
+      stroke: #000;
+      cursor: move;
+
+      &.active {
+        fill: blue;
+        stroke: darkblue;
+      }
+      &.construct {
+        opacity: 0;
+        cursor: crosshair;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  /* huds */
+  .cursor-info {
+    font: 10pt cursive;
+  }
+
+  .mini-axis {
+    stroke: #000;
+    stroke-width: 1;
+    font: 8pt cursive;
+    text-anchor: middle;
+    cursor: pointer;
+    rect {
+      fill: transparent;
+      stroke: none;
+    }
+  }
+
+  .zoom-controls,
+  .agv-controls,
+  .annotation-controls {
+    font: 16pt FontAwesome;
+    fill: black;
+    text-anchor: middle;
+    cursor: pointer;
+  }
+  #focus-toggle,
+  #costmap-toggle,
+  #annotation-toggle {
+    text {
+      fill: currentColor;
+    }
+  }
+}
+
+/* trackless specific */
+svg.map-viz.agv05x-map-viz {
+  background-color: #ffeaef;
+}
+
+.agv05x-ocg {
+  .agv05x-toolbar-bottom {
+    @apply z-10;
+    @apply select-none;
+    @apply flex;
+    @apply absolute;
+    @apply bottom-8 right-4;
+    &.agv05-fullscreen {
+      @apply z-[100];
+      @apply bottom-4;
+      @apply fixed;
+    }
+  }
+}
+
+.agv05x-map {
+  .agv05x-toolbar-bottom {
+    @apply select-none;
+    @apply flex;
+    @apply absolute;
+    @apply bottom-20 right-4;
+    &.agv05-fullscreen {
+      @apply z-50;
+      @apply bottom-4;
+      @apply fixed;
+    }
+  }
+  .agv05x-toolbar-right {
+    @apply select-none;
+    @apply flex;
+    @apply absolute;
+    @apply right-1;
+    @apply pt-1;
+    .toolbar-layer-panel {
+      .layer_0 {
+        background: rgba($color-0, 0.6);
+      }
+      .layer_1 {
+        background: rgba($color-1, 0.6);
+      }
+      .layer_2 {
+        background: rgba($color-2, 0.6);
+      }
+      .layer_3 {
+        background: rgba($color-3, 0.6);
+      }
+      .layer_4 {
+        background: rgba($color-4, 0.6);
+      }
+    }
+  }
+  .agv05x-toolbar-right.agv05-fullscreen {
+    @apply z-50;
+    @apply top-20;
+    @apply fixed;
+  }
+  .title-info.agv05-fullscreen {
+    @apply bottom-[50px];
+  }
+}
+
+/* tracked specific */
+.agv05-map {
+  .title-info.agv05-fullscreen {
+    @apply bottom-[30px];
+  }
+}
+
+/* changeset */
+.agv05-map,
+.agv05x-map {
+  .agv05-map-changesets {
+    @apply absolute;
+    @apply inset-y-1;
+    @apply right-1;
+    @apply mb-2;
+    @apply max-w-[250px];
+    @apply overflow-y-scroll;
+    @apply rounded-xl;
+    @apply z-10;
+
+    &.agv05-fullscreen {
+      @apply fixed;
+      @apply z-50;
+    }
+  }
+}

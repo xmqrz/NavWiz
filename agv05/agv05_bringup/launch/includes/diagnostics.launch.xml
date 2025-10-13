@@ -1,0 +1,20 @@
+<launch>
+  <arg name="has_lcd" default="$(optenv AGV05_HAS_LCD false)" />
+  <arg name="human_follower" default="$(optenv HUMAN_FOLLOWER false)" />
+  <arg name="simulator" default="$(optenv SIMULATOR false)" />
+  <arg name="trackless" default="$(optenv TRACKLESS false)" />
+
+  <node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator" >
+    <rosparam command="load" file="$(find agv05_bringup)/param/diagnostics.yaml" />
+    <rosparam command="load" ns="analyzers/agv05/analyzers/controllers/analyzers" file="$(find agv05_bringup)/param/diagnosticsp.yaml" unless="$(arg simulator)" />
+    <rosparam command="load" ns="analyzers/agv05/analyzers/controllers/analyzers" file="$(find agv05_bringup)/param/diagnosticsx.yaml" if="$(arg trackless)" />
+  </node>
+
+  <group unless="$(arg simulator)">
+    <param name="diagnostic_aggregator/analyzers/agv05/analyzers/controllers/analyzers/menu_panel/type" value="diagnostic_aggregator/GenericAnalyzer" if="$(arg has_lcd)" />
+  </group>
+
+  <group if="$(arg trackless)">
+    <param name="diagnostic_aggregator/analyzers/agv05/analyzers/controllers/analyzers/human_follower/type" value="diagnostic_aggregator/GenericAnalyzer" if="$(arg human_follower)" />
+  </group>
+</launch>

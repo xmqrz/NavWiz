@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv05_executive</name>
+  <version>3.2.0</version>
+  <description>
+    The agv05_executive meta package provides all the packages for task-level control and execution of the AGV05.
+  </description>
+  <author email="patrick@dfautomation.com">Patrick Chin</author>
+  <maintainer email="patrick@dfautomation.com">Patrick Chin</maintainer>
+  <license file="COPYRIGHT">Copyright (C) 2015 DF Automation and Robotics Sdn. Bhd.</license>
+  <url type="repository">http://gitlab.com/dfautomation/product/navwiz/agv05_executive</url>
+  <url type="bugtracker">http://gitlab.com/dfautomation/product/navwiz/agv05_executive/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>agv05_executor</exec_depend>
+  <exec_depend>agv05_skills</exec_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

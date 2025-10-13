@@ -1,0 +1,53 @@
+/* custom style*/
+.slick-header-column {
+  background: lightblue;
+  display: flex;
+  &.filter {
+    background: lightsalmon;
+  }
+}
+
+.slick-cell {
+  cursor: cell;
+
+  &.selected {
+    background-color: #fce7ff;
+  }
+
+  &:hover {
+    outline-style: solid;
+    outline-color: gray;
+    outline-width: 1px;
+    outline-offset: -1px;
+  }
+}
+
+.slick-row {
+  &.even {
+    background-color: #f5f5f5;
+  }
+
+  &.odd {
+    background-color: #ffffff;
+  }
+
+  &.nav-forward {
+    background-color: #d8e0f0;
+  }
+
+  &.nav-reverse {
+    background-color: #f0e4d8;
+  }
+
+  &.nav-left {
+    background-color: #efd8f0;
+  }
+
+  &.nav-right {
+    background-color: #d8eef0;
+  }
+
+  &.nav-misc {
+    background-color: #f0eed8;
+  }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv05_description</name>
+  <version>3.2.0</version>
+  <description>
+    The agv05_description package provides a 3D model of the AGV05 for simulation and visualization. The files in this package are parsed and used by a variety of other components. Most users will not interact directly with this package.
+  </description>
+  <author email="patrick@dfautomation.com">Patrick Chin</author>
+  <maintainer email="patrick@dfautomation.com">Patrick Chin</maintainer>
+  <license file="COPYRIGHT">Copyright (C) 2015 DF Automation and Robotics Sdn. Bhd.</license>
+  <url type="repository">https://gitlab.com/dfautomation/product/navwiz/agv05</url>
+  <url type="bugtracker">https://gitlab.com/dfautomation/product/navwiz/agv05/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>dynamic_reconfigure</depend>
+  <depend>geometry_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>tf2_ros</depend>
+  <depend>urdf</depend>
+  <depend>xacro</depend>
+
+  <test_depend>roslint</test_depend>
+</package>

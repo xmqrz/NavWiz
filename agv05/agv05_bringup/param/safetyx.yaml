@@ -1,0 +1,3 @@
+safety_heartbeat_topics:
+  agv05_navx: 'Navigation (Trackless)'
+  agv05_state_filter: 'State Filter'

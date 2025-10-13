@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+  <env name="TRACKLESS" value="true"/>
+  <include file="$(find agv05_webserver)/launch/webserver.launch" pass_all_args="true" />
+</launch>

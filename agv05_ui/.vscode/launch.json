@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // IMPORTANT! downgrade python extension to version v2022.2.1924087327 for python 2.7 support
+      "name": "Attach to Webserver",
+      "console": "integratedTerminal",
+      "type": "python",
+      "request": "attach",
+      "justMyCode": false,
+      "sudo": true,
+      "port": 56782
+    },
+    {
+      // IMPORTANT! downgrade python extension to version v2022.2.1924087327 for python 2.7 support
+      "name": "Attach to Sockserver",
+      "console": "integratedTerminal",
+      "type": "python",
+      "request": "attach",
+      "justMyCode": false,
+      "sudo": true,
+      "port": 56783
+    }
+  ]
+}
+

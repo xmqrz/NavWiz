@@ -1,0 +1,4 @@
+debian_files/cron.daily/navwiz_chrony_conf    /etc/cron.daily
+debian_files/ssh/*    /var/lib/navwiz/.ssh
+debian_files/sudo/navwiz    /etc/sudoers.d
+debian_files/usbmount/agv05_usb    /etc/usbmount/mount.d

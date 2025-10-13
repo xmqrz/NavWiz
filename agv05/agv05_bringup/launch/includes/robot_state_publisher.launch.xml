@@ -1,0 +1,6 @@
+<launch>
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="use_tf_static" type="bool" value="true" />
+  </node>
+  <node pkg="agv05_description" type="agv05_description" name="agv05_description" />
+</launch>

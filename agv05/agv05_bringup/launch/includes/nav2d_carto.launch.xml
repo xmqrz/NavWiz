@@ -1,0 +1,11 @@
+<launch>
+  <arg name="resolution" value="$(optenv MAP_RESOLUTION 0.02)" />
+
+  <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" args="
+    -configuration_directory $(find agv05_bringup)/configuration_files
+    -configuration_basename agv05.lua"
+    output="screen">
+  </node>
+
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros" type="cartographer_occupancy_grid_node" args="-resolution $(arg resolution)" output="screen" />
+</launch>

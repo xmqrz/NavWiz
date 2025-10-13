@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv05_flatland</name>
+  <version>2.0.0</version>
+  <description>
+    The agv05_flatland package provides a simulator mobile robot using the Flatland library.
+  </description>
+  <author email="yiliang.df@gmail.com">Ng Yi Liang</author>
+  <maintainer email="patrick@dfautomation.com">Patrick Chin</maintainer>
+  <license file="COPYRIGHT">Copyright (C) 2017 DF Automation and Robotics Sdn. Bhd.</license>
+  <url type="repository">https://gitlab.com/dfautomation/product/navwiz/agv05_simulator</url>
+  <url type="bugtracker">https://gitlab.com/dfautomation/product/navwiz/agv05_simulator/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>agv05_capabilities</exec_depend>
+  <exec_depend>flatland_plugins</exec_depend>
+  <exec_depend>flatland_server</exec_depend>
+  <exec_depend>flatland_viz</exec_depend>
+  <exec_depend>rosservice</exec_depend>
+
+  <test_depend>roslaunch</test_depend>
+
+  <export>
+    <capability_provider>
+      providers/flatland_node.yaml
+    </capability_provider>
+  </export>
+</package>

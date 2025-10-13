@@ -1,0 +1,206 @@
+input[type='checkbox']:disabled {
+  @apply opacity-25;
+  @apply cursor-not-allowed;
+}
+.screen-rorate {
+  transform: rotate(0deg);
+}
+.screen-rotate-active {
+  transform: rotate(180deg);
+  transition: all 0.3s ease-in-out;
+}
+.screen-rotate:not(.screen-rotate-active) {
+  transition: all 0.3s ease-in-out;
+}
+a.disabled,
+button.disabled {
+  @apply opacity-80;
+  @apply pointer-events-none;
+}
+.context-menu {
+  @apply absolute;
+  @apply hidden;
+  @apply z-50;
+}
+
+.agv05-live-scene {
+  opacity: 0.8;
+}
+
+/* theme */
+.btn {
+  @apply hover:!brightness-105;
+}
+
+.input,
+.textarea,
+.select,
+.input-group {
+  @apply !bg-surface-50-900-token;
+  @apply !border-surface-600-300-token focus-within:!border-primary-500;
+}
+
+textarea[readonly].textarea {
+  @apply ring-surface-500-400-token !ring-1;
+}
+
+.checkbox,
+.radio {
+  @apply !bg-surface-50-900-token;
+  @apply !border-surface-600-300-token focus:!border-primary-500;
+}
+
+.checkbox:checked,
+.checkbox:indeterminate,
+.radio:checked {
+  /* reapply original due to override*/
+  @apply !bg-primary-500;
+}
+
+.table {
+  tr.active {
+    @apply !bg-secondary-300-600-token;
+  }
+  tr.has-error {
+    @apply !bg-error-300-600-token;
+  }
+}
+
+/* custom button */
+.btn.variant-form {
+  @apply variant-ghost-surface;
+  @apply bg-surface-50-900-token;
+  @apply text-black;
+  @apply dark:text-white;
+}
+
+.btn.pressed {
+  @apply scale-95;
+}
+
+/* hidden scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* HACK: error for DateInput */
+div.parent-input-error > input {
+  @apply !input-error;
+}
+
+.manual-control-overlay {
+  @apply inset-0;
+  position: absolute;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.manual-control-overlay button,
+.manual-control-overlay .slide-toggle {
+  pointer-events: fill;
+}
+
+.manual-control-overlay .slide-toggle {
+  padding: 5px;
+}
+
+#form-tree .tree-branch {
+  margin-left: 30px;
+}
+
+#form-tree .leaf-end {
+  margin-left: 25px;
+}
+
+#form-tree .tree-input {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#form-tree label {
+  display: inline-block;
+}
+
+.agv05-dimension {
+  position: relative;
+}
+
+.agv05-dimension svg.viz {
+  background-color: #fff;
+  width: 320px;
+  height: 320px;
+  border: 1px solid grey;
+}
+
+.agv05-dimension svg.viz .bbox line {
+  stroke: #900;
+  stroke-dasharray: 4;
+  stroke-width: 0.6;
+  vector-effect: non-scaling-stroke;
+}
+
+.agv05-dimension svg.viz .dims line {
+  stroke: #000;
+  stroke-width: 0.8;
+  vector-effect: non-scaling-stroke;
+}
+
+.agv05-dimension svg.viz .dims text {
+  font: 0.06pt cursive;
+}
+
+#agv05-tooltip {
+  @apply absolute;
+  @apply w-max;
+  @apply max-w-xs;
+  @apply top-0;
+  @apply left-0;
+  @apply bg-gray-700;
+  @apply text-white;
+  @apply font-semibold;
+  @apply text-center;
+  @apply p-1;
+  @apply px-2;
+  @apply rounded;
+  @apply text-sm;
+  @apply dark:text-black;
+  @apply dark:bg-gray-200;
+  @apply z-50;
+}
+
+/* diagnostic style */
+.diagnostic {
+  display: flex;
+  flex-direction: column;
+}
+
+.diagnostic-fill {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.diagnostic-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 50;
+  background-color: #e6e6e6;
+}
+
+/* keyboard style */
+.svelte-keyboard svg {
+  @apply m-auto;
+}

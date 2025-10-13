@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv05_skills</name>
+  <version>3.2.0</version>
+  <description>
+    The agv05_skills package provides some basic skills for AGV05.
+  </description>
+  <author email="patrick@dfautomation.com">Patrick Chin</author>
+  <maintainer email="patrick@dfautomation.com">Patrick Chin</maintainer>
+  <license file="COPYRIGHT">Copyright (C) 2015 DF Automation and Robotics Sdn. Bhd.</license>
+  <url type="repository">http://gitlab.com/dfautomation/product/navwiz/agv05_executive</url>
+  <url type="bugtracker">http://gitlab.com/dfautomation/product/navwiz/agv05_executive/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>agv05_executor</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>smach</exec_depend>
+
+  <test_depend>roslint</test_depend>
+  <test_depend>rosunit</test_depend>
+  <test_depend>rostest</test_depend>
+
+  <export>
+    <agv05_executor skill_plugin="agv05_skills.plan_x.NavigateToX" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.plan_x.ReverseNavigateToX" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.plan_x.ResetAgvPositionX" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.plan_x.ResetAgvPositionTrackerX" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.plan_x.CheckAgvPositionX" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.plan.NavigateTo" tracked_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.plan.ReverseNavigateTo" tracked_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.plan.ResetAgvPosition" tracked_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.plan.CheckAgvPosition" tracked_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.plan.CheckAgvPositionRfid" tracked_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.plan.CheckAgvPositionPrefix"/>
+    <agv05_executor skill_plugin="agv05_skills.plan.CheckAgvPositionSuffix"/>
+    <agv05_executor skill_plugin="agv05_skills.plan.IsAgvHomed"/>
+    <agv05_executor skill_plugin="agv05_skills.dynplan.GoToWaypoint" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.dynplan.GoToStationWaypoint" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.dynplan.GoToMarkerWaypoint" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.dynplan.DynamicLineForwardX" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.dynplan.DynamicLineReverseX" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.dynplan.DynamicBezierForwardX" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.dynplan.DynamicBezierReverseX" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.nav_x.ForwardX" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.nav_x.ReverseX" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.nav_x.BezierForwardX" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.nav_x.BezierReverseX" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.nav_x.ForwardXWaitIo" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.nav_x.ReverseXWaitIo" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.dock.ForwardDock" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.dock.ReverseDock" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.dock.OmniDock" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.dock.ForwardUndock" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.dock.ReverseUndock" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.nav_x.RotateLeftX" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.nav_x.RotateRightX" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.nav_x.RotateAbsoluteX" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.nav.Forward" />
+    <agv05_executor skill_plugin="agv05_skills.nav.Reverse" />
+    <agv05_executor skill_plugin="agv05_skills.nav.BranchForwardLeft" />
+    <agv05_executor skill_plugin="agv05_skills.nav.BranchForwardRight" />
+    <agv05_executor skill_plugin="agv05_skills.nav.BranchReverseLeft" />
+    <agv05_executor skill_plugin="agv05_skills.nav.BranchReverseRight" />
+    <agv05_executor skill_plugin="agv05_skills.nav.ForwardByDistance" />
+    <agv05_executor skill_plugin="agv05_skills.nav.ReverseByDistance" />
+    <agv05_executor skill_plugin="agv05_skills.nav.ForwardWaitIo" />
+    <agv05_executor skill_plugin="agv05_skills.nav.ReverseWaitIo" />
+    <agv05_executor skill_plugin="agv05_skills.nav.ForwardWaitIoByDistance" />
+    <agv05_executor skill_plugin="agv05_skills.nav.ReverseWaitIoByDistance" />
+    <agv05_executor skill_plugin="agv05_skills.nav.RotateLeft" />
+    <agv05_executor skill_plugin="agv05_skills.nav.RotateRight" />
+    <agv05_executor skill_plugin="agv05_skills.nav.UturnLeft" />
+    <agv05_executor skill_plugin="agv05_skills.nav.UturnRight" />
+    <agv05_executor skill_plugin="agv05_skills.nav.Rotate3qLeft" />
+    <agv05_executor skill_plugin="agv05_skills.nav.Rotate3qRight" />
+    <agv05_executor skill_plugin="agv05_skills.nav.SearchLineLeft" />
+    <agv05_executor skill_plugin="agv05_skills.nav.SearchLineRight" />
+    <agv05_executor skill_plugin="agv05_skills.nav.RotateByAngle" />
+    <agv05_executor skill_plugin="agv05_skills.nav.SelectNavProfile" />
+    <agv05_executor skill_plugin="agv05_skills.nav.SelectLaserProfile" />
+    <agv05_executor skill_plugin="agv05_skills.nav.ScanLaserProfile" />
+    <agv05_executor skill_plugin="agv05_skills.plan.SelectDimensionProfile" />
+    <agv05_executor skill_plugin="agv05_skills.marker.FindMarker" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.amcl.MatchReflectors" trackless_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.wait.Wait" />
+    <agv05_executor skill_plugin="agv05_skills.wait.WaitAcknowledge" />
+    <agv05_executor skill_plugin="agv05_skills.wait.WaitConfirm" />
+    <agv05_executor skill_plugin="agv05_skills.wait.WaitKeypad" />
+    <agv05_executor skill_plugin="agv05_skills.wait.WaitResume" />
+    <agv05_executor skill_plugin="agv05_skills.wait.Sleep" />
+    <agv05_executor skill_plugin="agv05_skills.power.DockCharger" />
+    <agv05_executor skill_plugin="agv05_skills.power.UndockCharger" />
+    <agv05_executor skill_plugin="agv05_skills.power.CheckBattery" />
+    <agv05_executor skill_plugin="agv05_skills.power.CalibrateBattery" />
+    <agv05_executor skill_plugin="agv05_skills.power.RebootAGV" />
+    <agv05_executor skill_plugin="agv05_skills.power.PowerOffAGV" />
+    <agv05_executor skill_plugin="agv05_skills.audio.PlayMusic" />
+    <agv05_executor skill_plugin="agv05_skills.audio.PauseMusic" />
+    <agv05_executor skill_plugin="agv05_skills.audio.StopMusic" />
+    <agv05_executor skill_plugin="agv05_skills.audio.PlayAlarm" />
+    <agv05_executor skill_plugin="agv05_skills.audio.StopAlarm" />
+    <agv05_executor skill_plugin="agv05_skills.io.IoRead" />
+    <agv05_executor skill_plugin="agv05_skills.io.IoWrite" />
+    <agv05_executor skill_plugin="agv05_skills.io.IoReadRegister" />
+    <agv05_executor skill_plugin="agv05_skills.io.IoWriteRegister" />
+    <agv05_executor skill_plugin="agv05_skills.ros.SetParameters" />
+    <agv05_executor skill_plugin="agv05_skills.register.SetRegister" />
+    <agv05_executor skill_plugin="agv05_skills.register.CompareAndSetRegister" />
+    <agv05_executor skill_plugin="agv05_skills.register.IncrRegister" />
+    <agv05_executor skill_plugin="agv05_skills.register.DecrRegister" />
+    <agv05_executor skill_plugin="agv05_skills.register.AddRegister" />
+    <agv05_executor skill_plugin="agv05_skills.register.SubtractRegister" />
+    <agv05_executor skill_plugin="agv05_skills.register.MultiplyRegister" />
+    <agv05_executor skill_plugin="agv05_skills.register.DivideRegister" />
+    <agv05_executor skill_plugin="agv05_skills.register.CopyRegister" />
+    <agv05_executor skill_plugin="agv05_skills.register.DisplayRegister" />
+    <agv05_executor skill_plugin="agv05_skills.loop.Counter" />
+    <agv05_executor skill_plugin="agv05_skills.comparator.CompareRegisters" />
+    <agv05_executor skill_plugin="agv05_skills.comparator.CompareRegisterInt" />
+    <agv05_executor skill_plugin="agv05_skills.comparator.CompareInts" />
+    <agv05_executor skill_plugin="agv05_skills.comparator.CompareDoubles" />
+    <agv05_executor skill_plugin="agv05_skills.comparator.CompareStations" />
+    <agv05_executor skill_plugin="agv05_skills.comparator.CompareStationPrefix" />
+    <agv05_executor skill_plugin="agv05_skills.comparator.CompareStationSuffix" />
+    <agv05_executor skill_plugin="agv05_skills.comparator.CompareStrs" />
+    <agv05_executor skill_plugin="agv05_skills.comparator.CompareBools" />
+    <agv05_executor skill_plugin="agv05_skills.datetime.CheckTime" />
+    <agv05_executor skill_plugin="agv05_skills.remote_io.RemoteIoRead" />
+    <agv05_executor skill_plugin="agv05_skills.remote_io.RemoteIoWrite" />
+    <agv05_executor skill_plugin="agv05_skills.remote_io.RemoteIoReadRegister" />
+    <agv05_executor skill_plugin="agv05_skills.remote_io.RemoteIoWriteRegister" />
+    <agv05_executor skill_plugin="agv05_skills.modbus.ModbusRead"/>
+    <agv05_executor skill_plugin="agv05_skills.modbus.ModbusWrite"/>
+    <agv05_executor skill_plugin="agv05_skills.modbus.ModbusReadRegister"/>
+    <agv05_executor skill_plugin="agv05_skills.modbus.ModbusWriteRegister"/>
+    <agv05_executor skill_plugin="agv05_skills.rfid.ReadRFIDAndCompareString"/>
+    <agv05_executor skill_plugin="agv05_skills.rfid.ReadRFIDAndResetAgvPosition" tracked_only="true"/>
+    <agv05_executor skill_plugin="agv05_skills.rfid.ResetRFID"/>
+    <agv05_executor skill_plugin="agv05_skills.http.HttpGet"/>
+    <agv05_executor skill_plugin="agv05_skills.http.HttpPost"/>
+    <agv05_executor skill_plugin="agv05_skills.http.HttpPut"/>
+    <agv05_executor skill_plugin="agv05_skills.http.HttpDelete"/>
+    <agv05_executor skill_plugin="agv05_skills.diagnostic.CheckDiagnosticStatus" />
+    <agv05_executor skill_plugin="agv05_skills.log.LogMessage"/>
+    <agv05_executor skill_plugin="agv05_skills.task.UpdateTaskProgress"/>
+    <agv05_executor skill_plugin="agv05_skills.task.AbortTask"/>
+    <agv05_executor skill_plugin="agv05_skills.variable.SetBool"/>
+    <agv05_executor skill_plugin="agv05_skills.variable.SetInt"/>
+    <agv05_executor skill_plugin="agv05_skills.variable.SetIntFromRegister"/>
+    <agv05_executor skill_plugin="agv05_skills.variable.SetDouble"/>
+    <agv05_executor skill_plugin="agv05_skills.variable.SetStr"/>
+    <agv05_executor skill_plugin="agv05_skills.variable.SetStrFromInt"/>
+    <agv05_executor skill_plugin="agv05_skills.variable.SetStrFromDouble"/>
+    <agv05_executor skill_plugin="agv05_skills.variable.SetStrFromStation"/>
+    <agv05_executor skill_plugin="agv05_skills.variable.SetStation"/>
+    <agv05_executor skill_plugin="agv05_skills.variable.ComposeString"/>
+  </export>
+</package>

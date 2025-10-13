@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv05_state_filter</name>
+  <version>3.2.0</version>
+  <description>The agv05_state_filter package contains tools to perform state estimation, through the fusion of various sensor data, for the AGV05.
+  </description>
+  <author email="patrick@dfautomation.com">Patrick Chin</author>
+  <maintainer email="patrick@dfautomation.com">Patrick Chin</maintainer>
+  <license file="COPYRIGHT">Copyright (C) 2015 DF Automation and Robotics Sdn. Bhd.</license>
+  <url type="repository">https://gitlab.com/dfautomation/product/navwiz/agv05</url>
+  <url type="bugtracker">https://gitlab.com/dfautomation/product/navwiz/agv05/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>message_filters</build_depend>
+  <build_depend>tf2_geometry_msgs</build_depend>
+
+  <depend>csm</depend>
+  <depend>diagnostic_updater</depend>
+  <depend>dynamic_reconfigure</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf2_ros</depend>
+
+  <test_depend>roslint</test_depend>
+</package>

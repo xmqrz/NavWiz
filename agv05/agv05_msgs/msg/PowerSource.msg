@@ -1,0 +1,7 @@
+float32 battery1_voltage
+float32 battery2_voltage
+float32 battery_current
+float32 battery_percentage
+float32 auto_charger_voltage
+float32 manual_charger_voltage
+bool manual_charger_connected

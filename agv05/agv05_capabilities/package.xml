@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv05_capabilities</name>
+  <version>3.2.0</version>
+  <description>
+    The agv05_capabilities package provides the capabilities for the AGV05.
+  </description>
+  <author email="patrick@dfautomation.com">Patrick Chin</author>
+  <maintainer email="patrick@dfautomation.com">Patrick Chin</maintainer>
+  <license file="COPYRIGHT">Copyright (C) 2015 DF Automation and Robotics Sdn. Bhd.</license>
+  <url type="repository">https://gitlab.com/dfautomation/product/navwiz/agv05</url>
+  <url type="bugtracker">https://gitlab.com/dfautomation/product/navwiz/agv05/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>agv05_bringup</exec_depend>
+  <exec_depend>agv05_msgs</exec_depend>
+  <exec_depend>capabilities</exec_depend>
+  <exec_depend>std_capabilities</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <test_depend>roslaunch</test_depend>
+
+  <export>
+    <capability_interface>
+      interfaces/Agv05Bringup.yaml
+    </capability_interface>
+    <capability_interface>
+      interfaces/MobileRobot.yaml
+    </capability_interface>
+    <semantic_capability_interface>
+      interfaces/SimulatorMobileRobot.yaml
+    </semantic_capability_interface>
+    <capability_provider>
+      providers/agv05_bringup.yaml
+    </capability_provider>
+    <capability_provider>
+      providers/diagnostics.yaml
+    </capability_provider>
+    <capability_provider>
+      providers/nav2d_amcl.yaml
+    </capability_provider>
+    <capability_provider>
+      providers/nav2d_carto.yaml
+    </capability_provider>
+    <capability_provider>
+      providers/nav2d_slam.yaml
+    </capability_provider>
+    <capability_provider>
+      providers/nav2d_slam_toolbox.yaml
+    </capability_provider>
+    <capability_provider>
+      providers/robot_state_publisher.yaml
+    </capability_provider>
+    <capability_provider>
+      providers/simulator_bringup.yaml
+    </capability_provider>
+    <capability_provider>
+      providers/simulator_diagnostics.yaml
+    </capability_provider>
+    <capability_provider>
+      providers/simulator_robot_state_publisher.yaml
+    </capability_provider>
+  </export>
+</package>

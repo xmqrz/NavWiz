@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<robot name="flatland" xmlns:xacro="http://ros.org/wiki/xacro">
+  <link name="base"/>
+
+  <joint name="wheel_joint" type="fixed">
+    <parent link="base"/>
+    <child link="wheel"/>
+  </joint>
+
+  <link name="wheel"/>
+</robot>

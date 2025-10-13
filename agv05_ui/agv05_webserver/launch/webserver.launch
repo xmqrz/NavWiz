@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="debugpy" default="$(optenv DEBUGPY false)" />
+  <arg name="sockdebugpy" default="$(optenv SOCKDEBUGPY false)" />
+
+  <arg name="webserver_prefix" default="" unless="$(arg debugpy)" />
+  <arg name="webserver_prefix" default="python -m debugpy --wait-for-client --listen localhost:56782" if="$(arg debugpy)" />
+
+  <arg name="sockserver_prefix" default="" unless="$(arg sockdebugpy)" />
+  <arg name="sockserver_prefix" default="python -m debugpy --wait-for-client --listen localhost:56783" if="$(arg sockdebugpy)" />
+
+  <!-- Start the Django webserver -->
+  <node pkg="agv05_webserver" type="manage.py" name="agv05_webserver" args="runserver --noreload 0.0.0.0:8000" required="true" output="screen"
+    launch-prefix="$(arg webserver_prefix)">
+  </node>
+
+  <!-- Start the Sockjs-Tornado server -->
+  <node pkg="agv05_webserver" type="manage.py" name="agv05_sockserver" args="sockserver 0.0.0.0:9000" required="true" output="screen"
+    launch-prefix="$(arg sockserver_prefix)">
+  </node>
+
+  <!-- Start the celery worker daemon -->
+  <node pkg="agv05_webserver" type="celery" name="agv05_celery" args="-A agv05_webserver worker -l info" required="true" output="screen">
+  </node>
+
+  <!-- Start the celerybeat daemon -->
+  <node pkg="agv05_webserver" type="celery" name="agv05_celerybeat" args="-A agv05_webserver beat" required="true" output="screen">
+  </node>
+</launch>

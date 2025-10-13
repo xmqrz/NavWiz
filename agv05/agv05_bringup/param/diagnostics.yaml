@@ -1,0 +1,56 @@
+# The remove_prefix is important - it corresponds to the name of
+# the node that is automatically prefixed to cpp diagnostic task
+# names.
+
+pub_rate: 1.0 # Optional
+base_path: '' # Optional, prepended to all diagnostic output
+analyzers:
+  agv05:
+    type: diagnostic_recorder/AnalyzerRecorderGroup
+    storage_urls:
+      - 'file://~/.ros/diagnostics/'
+    path: ''
+    analyzers:
+      controllers:
+        type: diagnostic_aggregator/AnalyzerGroup
+        path: 'Controllers'
+        analyzers:
+          executor:
+            type: diagnostic_aggregator/GenericAnalyzer
+            path: 'Executor'
+            timeout: 5.0
+            startswith: 'agv05_executor'
+            remove_prefix: agv05_executor
+          lidar:
+            type: diagnostic_aggregator/GenericAnalyzer
+            path: 'Lidar'
+            timeout: 5.0
+            startswith: 'agv05_lidar'
+            remove_prefix: agv05_lidar
+          nav:
+            type: diagnostic_aggregator/GenericAnalyzer
+            path: 'Navigation'
+            timeout: 5.0
+            startswith: 'agv05_nav:'
+            remove_prefix: agv05_nav
+          obstacle_sensor:
+            type: diagnostic_aggregator/GenericAnalyzer
+            path: 'Obstacle Sensor'
+            timeout: 5.0
+            startswith: 'agv05_obstacle_sensor'
+            remove_prefix: agv05_obstacle_sensor
+          wifi_manager:
+            type: diagnostic_aggregator/GenericAnalyzer
+            path: 'Wifi Manager'
+            timeout: 5.0
+            startswith: 'wifi_manager'
+            remove_prefix: wifi_manager
+      hardware:
+        type: diagnostic_aggregator/AnalyzerGroup
+        path: 'Hardware'
+        analyzers:
+          placeholder:
+            type: diagnostic_aggregator/DiscardAnalyzer
+            path: 'NIL'
+            startswith: 'NIL'
+            remove_prefix: 'NIL'

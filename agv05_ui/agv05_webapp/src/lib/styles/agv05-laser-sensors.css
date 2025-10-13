@@ -1,0 +1,93 @@
+.agv05-laser-sensors {
+  @apply relative;
+
+  svg.viz {
+    background-color: #fff;
+    @apply w-full;
+    @apply h-[600px];
+    @apply min-h-[300px];
+    @apply min-w-[320px];
+    @apply rounded-2xl;
+
+    .laser-area-lidar {
+      .laser-scan {
+        path {
+          fill: rgba(180, 180, 224, 0.7);
+          &.traces {
+            fill: rgb(216, 32, 32);
+          }
+        }
+      }
+    }
+  }
+
+  .coord-list {
+    @apply h-[375px];
+    @apply overflow-x-visible;
+    @apply overflow-y-auto;
+
+    input {
+      @apply w-[90px];
+      @apply text-sm;
+      @apply rounded;
+      @apply h-[30px];
+    }
+    .active input {
+      background-color: lightblue;
+    }
+    .has-error input {
+      background-color: tomato;
+    }
+  }
+
+  .blinds {
+    fill: rgba(216, 216, 216, 0.7);
+    stroke: rgb(128, 128, 128);
+    stroke-width: 0.004;
+  }
+
+  .regions {
+    polygon {
+      fill-opacity: 0.4;
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+      @apply cursor-pointer;
+
+      &.region-far {
+        fill: yellow;
+        stroke: yellow;
+      }
+      &.region-middle {
+        fill: orange;
+        stroke: orange;
+      }
+      &.region-near {
+        fill: red;
+        stroke: red;
+      }
+    }
+
+    &.drag-active polygon {
+      cursor: inherit;
+    }
+
+    circle {
+      fill: #fff;
+      stroke: #000;
+      @apply cursor-move;
+
+      &.active {
+        fill: blue;
+        stroke: darkblue;
+      }
+      &.construct {
+        opacity: 0;
+        cursor: crosshair;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

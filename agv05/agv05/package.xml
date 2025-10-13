@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv05</name>
+  <version>3.2.0</version>
+  <description>
+    The agv05 meta package provides all the packages for running and using the AGV05.
+  </description>
+  <author email="patrick@dfautomation.com">Patrick Chin</author>
+  <maintainer email="patrick@dfautomation.com">Patrick Chin</maintainer>
+  <license file="COPYRIGHT">Copyright (C) 2015 DF Automation and Robotics Sdn. Bhd.</license>
+  <url type="repository">https://gitlab.com/dfautomation/product/navwiz/agv05</url>
+  <url type="bugtracker">https://gitlab.com/dfautomation/product/navwiz/agv05/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>agv05_audio_player</exec_depend>
+  <exec_depend>agv05_bringup</exec_depend>
+  <exec_depend>agv05_capabilities</exec_depend>
+  <exec_depend>agv05_description</exec_depend>
+  <exec_depend>agv05_executive_msgs</exec_depend>
+  <exec_depend>agv05_joy</exec_depend>
+  <exec_depend>agv05_led_control_mux</exec_depend>
+  <exec_depend>agv05_lidar</exec_depend>
+  <exec_depend>agv05_line_sensor</exec_depend>
+  <exec_depend>agv05_menu_panel</exec_depend>
+  <exec_depend>agv05_modbus_client</exec_depend>
+  <exec_depend>agv05_modbus_server</exec_depend>
+  <exec_depend>agv05_motor</exec_depend>
+  <exec_depend>agv05_msgs</exec_depend>
+  <exec_depend>agv05_nav</exec_depend>
+  <exec_depend>agv05_navx</exec_depend>
+  <exec_depend>agv05_obstacle_sensor</exec_depend>
+  <exec_depend>agv05_panel</exec_depend>
+  <exec_depend>agv05_power</exec_depend>
+  <exec_depend>agv05_remote_io</exec_depend>
+  <exec_depend>agv05_safety</exec_depend>
+  <exec_depend>agv05_state_filter</exec_depend>
+  <exec_depend>agv05_variable_storage</exec_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

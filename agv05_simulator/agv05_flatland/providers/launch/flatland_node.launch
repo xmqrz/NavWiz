@@ -1,0 +1,49 @@
+<launch>
+  <arg name="show_viz" default="$(optenv AGV05_FLATLAND_USE_GUI true)"/>
+  <arg name="world" default="$(optenv AGV05_FLATLAND_WORLD hospital_section)" />
+
+  <!-- this is the initial pose for the robot in this map
+  user can change to anohter pose so robot can generate in diffrent position-->
+  <arg name="initial_pose_x" default="3.0"/>
+  <arg name="initial_pose_y" default="7.0"/>
+  <arg name="initial_pose_a" default="0.0"/>
+
+  <arg name="update_rate" default="200.0"/>
+  <arg name="step_size" default="0.005"/>
+  <arg name="viz_pub_rate" default="30.0"/>
+  <arg name="use_rviz" default="false"/>
+
+  <!-- flatland launch -->
+  <node name="flatland_server" pkg="flatland_server" type="flatland_server" output="screen">
+    <!-- Use the arguments passed into the launchfile for this node -->
+    <param name="world_path" value="$(find agv05_flatland)/world/$(arg world).world.yaml" />
+    <param name="update_rate" value="$(arg update_rate)" />
+    <param name="step_size" value="$(arg step_size)" />
+    <param name="show_viz" value="$(arg show_viz)" />
+    <param name="viz_pub_rate" value="$(arg viz_pub_rate)" />
+  </node>
+
+  <!-- spawn robot -->
+  <node name="spawn_model" pkg="rosservice" type="rosservice"
+    args="call --wait /spawn_model &quot;{
+      yaml_path: '$(find agv05_flatland)/robot/dummy.model.yaml',
+      name: 'dummy',
+      ns: '',
+      pose: {x: $(arg initial_pose_x), y: $(arg initial_pose_y), theta: $(arg initial_pose_a)}}&quot;"
+    />
+
+  <group if="$(arg show_viz)">
+    <node name="flatland_viz" pkg="flatland_viz" type="flatland_viz" output="screen" required="true" unless="$(arg use_rviz)"/>
+  </group>
+
+  <!-- nav2d scan -->
+  <param name="nav2d_scan_topics" value="scan" />
+
+  <!-- agv05_lidar scan -->
+  <rosparam param="primary_obstacle_scan_topics">
+    scan: Front Laser
+  </rosparam>
+
+  <!-- robot description -->
+  <param name="robot_description" textfile="$(find agv05_flatland)/urdf/dummy.urdf" />
+</launch>

@@ -1,0 +1,10 @@
+<launch>
+  <test test-name="test_file_cpp" pkg="agv05_variable_storage" type="agv05_variable_storage-cpp_test">
+    <param name="variable_storage_url" value="file://$(env HOME)/.agv05/variable_storage/" />
+  </test>
+  <!--
+  <test test-name="test_mysql_cpp" pkg="agv05_variable_storage" type="agv05_variable_storage-cpp_test">
+    <param name="variable_storage_url" value="mysql://root:@localhost/agv05#system_variable" />
+  </test>
+  -->
+</launch>

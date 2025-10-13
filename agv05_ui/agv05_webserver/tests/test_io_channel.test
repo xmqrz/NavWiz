@@ -1,0 +1,3 @@
+<launch>
+  <test test-name="test_io_channel" pkg="agv05_webserver" type="test_io_channel.py" time-limit="90.0"/>
+</launch>

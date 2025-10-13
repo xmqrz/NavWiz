@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>agv05_executive_msgs</name>
+  <version>3.2.0</version>
+  <description>
+    The agv05_executive_msgs package provides message and service definition for the AGV05 executor.
+  </description>
+  <author email="patrick@dfautomation.com">Patrick Chin</author>
+  <maintainer email="patrick@dfautomation.com">Patrick Chin</maintainer>
+  <license file="COPYRIGHT">Copyright (C) 2015 DF Automation and Robotics Sdn. Bhd.</license>
+  <url type="repository">https://gitlab.com/dfautomation/navwiz/product/agv05</url>
+  <url type="bugtracker">https://gitlab.com/dfautomation/navwiz/product/agv05/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
+
+  <build_depend>message_generation</build_depend>
+
+  <exec_depend>message_runtime</exec_depend>
+</package>

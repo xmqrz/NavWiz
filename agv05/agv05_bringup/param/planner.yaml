@@ -1,0 +1,4 @@
+allow_unknown: false
+default_tolerance: 0.0
+outline_map: true
+publish_potential: false

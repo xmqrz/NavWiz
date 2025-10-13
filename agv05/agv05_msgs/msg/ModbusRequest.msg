@@ -1,0 +1,12 @@
+uint8 request_id
+uint8 modbus
+uint8 type
+uint8 TYPE_READ_COIL=1
+uint8 TYPE_READ_DISCRETE_INPUT=2
+uint8 TYPE_READ_HOLDING_REGISTER=3
+uint8 TYPE_READ_INPUT_REGISTER=4
+uint8 TYPE_WRITE_COIL=5
+uint8 TYPE_MASK_WRITE_REGISTER=6
+uint16 address
+uint16 data
+uint16 data_mask

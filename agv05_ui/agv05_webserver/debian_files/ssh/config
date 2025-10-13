@@ -1,0 +1,41 @@
+Host dfhub
+  Hostname rnd.dfautomation.com
+  Port 17167
+  HostKeyAlgorithms=ssh-dss
+  IdentityFile ~/.ssh/dfhub_rsa
+  User hub
+
+Host dfhub2
+  Hostname rnd.dfautomation.com
+  Port 2222
+  HostKeyAlgorithms=ssh-dss
+  IdentityFile ~/.ssh/dfhub_rsa
+  User hub
+
+Host dfhub3
+  Hostname rnd2.dfautomation.com
+  Port 22
+  HostKeyAlgorithms=ssh-dss
+  IdentityFile ~/.ssh/dfhub_rsa
+  User hub
+
+Host dfhub4
+  Hostname rnd.dfautomation.com
+  Port 22
+  HostKeyAlgorithms=ssh-dss
+  IdentityFile ~/.ssh/dfhub_rsa
+  User hub
+
+Host dfhub5
+  Hostname rnd2.dfautomation.com
+  Port 17167
+  HostKeyAlgorithms=ssh-dss
+  IdentityFile ~/.ssh/dfhub_rsa
+  User hub
+
+Host dfhub6
+  Hostname rnd2.dfautomation.com
+  Port 2222
+  HostKeyAlgorithms=ssh-dss
+  IdentityFile ~/.ssh/dfhub_rsa
+  User hub

@@ -1,0 +1,11 @@
+float32 linear_error
+float32 angular_error
+float32 heading_error
+bool out_of_line
+bool on_junction
+bool enable
+uint16 junction_count
+uint8 sensor_error
+uint8 NORMAL=0
+uint8 COMMUNICATION_ERROR=1
+uint8 CALIBRATION_ERROR=2
